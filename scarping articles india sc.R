@@ -16,6 +16,9 @@ smart_c_debate <- read_html(here::here("mypage.html")) %>%
 
 smart_c_debate
 
+#maybe something better 
+
+
 
 
 
