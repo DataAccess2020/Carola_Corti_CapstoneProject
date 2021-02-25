@@ -1,2 +1,2 @@
 # mystuff
-Doing various stuff 
+My capstone prj (the readme file will be added next)
