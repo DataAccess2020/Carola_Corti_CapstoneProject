@@ -15,13 +15,23 @@ This project aims at collecting information about the discourse above smart citi
 
 # Introduction
 
-# URBANET: scraping articles about India smart urban planning
+(theoric part on the sc debate)
+
+# URBANET: scraping and analyzing articles about smart urban planning in India 
 
 In this first session I will provide a textual analysis of the articles about smart cities in India collected in the [URBANET](https://www.urbanet.info/) web page. This digital blog fosters international dialogue on development activities worldwide and shares expertise in the areas of municipal and local governance, sustainable urban development and decentralization. Addressing international experts and working with multiple renowned authors from around the globe, the blog is supported and implemented by GIZ's Sector Project "Urbanization, Municipal and Urban Development" on behalf of the German Federal Ministry for Economic Cooperation and Development (BMZ). The articles revolve around governance and finance issues, basic infrastructure and housing, green and smart development and global urban debates.
 
-It is in consideration of these contents that I decided to consider as good starting point for my analysis the articles collected in the site session dedicated to India (available at [this link](https://www.urbanet.info/tag/india/)).
+It is in consideration of these contents that the articles collected in the site session dedicated to India (available at [this link](https://www.urbanet.info/tag/india/)), were considered as a good starting point for my analysis. The following sessions will describe the whole scraping process I performed to access the textual data I needed before running the subsequent text mining analyses.
 
+## /robots.txt file inspection
 
+To check whether the website's rules permitted to perform web scraping on that page, i checked the robots.txt file. As a result, the following lines of code are shown:
+
+![](images/ROBOTSTXT.png){width="276"}
+
+The website shows it instructions to web robots by using the Robots Exclusion Protocol. The first line tells us this section applies to all robots; the second tells no robot can crawl the "/wp-admin/" page, namely the control dashboard of the entire WordPress website, while the last one tells the website is allowed to be crawled.
+
+## 
 
 # TWITTER: how do people talk about smart cities?
 
