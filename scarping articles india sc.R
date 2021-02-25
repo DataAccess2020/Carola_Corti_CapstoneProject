@@ -28,9 +28,8 @@ download.file(url, destfile = here::here ("mypage.html"))
 
 # 3) Insert the selected CSS path  
 
-sc_india_debate <- read_html(here::here("mypage.html")) %>%
-  html_nodes("#posts-container :nth-child(1)") %>%
-  html_text()
+Date <- read_html(here::here("mypage.html")) %>%
+  html_nodes(".rich-snippet-hidden+ span") %>% html_text()
 
-
-sc_india_debate
+Article <- read_html(here::here("mypage.html")) %>%
+  html_nodes(".fusion-alignleft") %>% html_attrs(, href) %>% html_text()
