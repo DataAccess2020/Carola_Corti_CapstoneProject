@@ -32,4 +32,6 @@ Date <- read_html(here::here("mypage.html")) %>%
   html_nodes(".rich-snippet-hidden+ span") %>% html_text()
 
 Article <- read_html(here::here("mypage.html")) %>%
-  html_nodes(".fusion-alignleft") %>% html_attrs(, href) %>% html_text()
+  html_nodes("#posts-container .fusion-alignleft") %>% html_text()
+
+Article
