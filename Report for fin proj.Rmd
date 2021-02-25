@@ -1,6 +1,7 @@
 ---
 title: "Smart cities in India: sketching public opinion trends on smart urban planning policies"
 author: "Carola Corti- 961514"
+date: "February 2021"
 output: pdf_document
 ---
 
@@ -15,6 +16,12 @@ This project aims at collecting information about the discourse above smart citi
 # Introduction
 
 # URBANET: scraping articles about India smart urban planning
+
+In this first session I will provide a textual analysis of the articles about smart cities in India collected in the [URBANET](https://www.urbanet.info/) web page. This digital blog fosters international dialogue on development activities worldwide and shares expertise in the areas of municipal and local governance, sustainable urban development and decentralization. Addressing international experts and working with multiple renowned authors from around the globe, the blog is supported and implemented by GIZ's Sector Project "Urbanization, Municipal and Urban Development" on behalf of the German Federal Ministry for Economic Cooperation and Development (BMZ). The articles revolve around governance and finance issues, basic infrastructure and housing, green and smart development and global urban debates.
+
+It is in consideration of these contents that I decided to consider as good starting point for my analysis the articles collected in the site session dedicated to India (available at [this link](https://www.urbanet.info/tag/india/)).
+
+
 
 # TWITTER: how do people talk about smart cities?
 
