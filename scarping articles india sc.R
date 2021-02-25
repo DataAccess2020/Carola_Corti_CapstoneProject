@@ -20,9 +20,10 @@ url <-"https://www.urbanet.info/tag/india/"
 download.file(url, destfile = here::here ("mypage.html"))
 
 smart_c_debate <- read_html(here::here("mypage.html")) %>%
-  html_nodes(".fusion-post-content-wrapper , .fusion-post-content-container p") %>%
+  html_nodes("#posts-container :nth-child(1)") %>%
   html_text()
 
+smart_c_debate
 
 #EXTRACTING JUST THE CONTENT IN THE OREVIEW OF THE ARTICLES: OK 
 
@@ -32,12 +33,21 @@ smart_c_debate_content <- read_html(here::here("mypage.html")) %>%
  
 smart_c_debate_content
 
+
+# CORPUS IN QUANTEDA 
+
 library(quanteda)
-mycorp <-corpus(smart_c_debate_content)
-
-mydfm <- dfm(mycorp)
-
-mydfm
+mycorp <-corpus(smart_c_debate)
 
 
-#etceetc
+
+myDfm <- dfm(mycorp , remove = stopwords("english"), tolower = TRUE,
+             remove_punct = TRUE, remove_numbers=TRUE, remove_symbols=TRUE)
+
+textplot_wordcloud(myDfm ,
+                   color = c('black', 'red', 'green', 'purple', 'orange', 'blue'))
+
+
+
+
+
