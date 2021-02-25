@@ -17,7 +17,7 @@ This project aims at collecting information about the discourse above smart citi
 
 (theoric part on the sc debate)
 
-# URBANET: scraping and analyzing articles about smart urban planning in India 
+# URBANET: scraping and analyzing articles about smart urban planning in India
 
 In this first session I will provide a textual analysis of the articles about smart cities in India collected in the [URBANET](https://www.urbanet.info/) web page. This digital blog fosters international dialogue on development activities worldwide and shares expertise in the areas of municipal and local governance, sustainable urban development and decentralization. Addressing international experts and working with multiple renowned authors from around the globe, the blog is supported and implemented by GIZ's Sector Project "Urbanization, Municipal and Urban Development" on behalf of the German Federal Ministry for Economic Cooperation and Development (BMZ). The articles revolve around governance and finance issues, basic infrastructure and housing, green and smart development and global urban debates.
 
@@ -31,7 +31,9 @@ To check whether the website's rules permitted to perform web scraping on that p
 
 The website shows it instructions to web robots by using the Robots Exclusion Protocol. The first line tells us this section applies to all robots; the second tells no robot can crawl the "/wp-admin/" page, namely the control dashboard of the entire WordPress website, while the last one tells the website is allowed to be crawled.
 
-## 
+## Selecting CSS paths from the DOM structure via Selector Gadget
+
+After having inspected the /robots.txt file, I've selected the parts of the web page I need to take into account to build the corpus on which I'll perform text analytics. I'll use selector Gadget, which will help me generating by a simple point-click operation the CSS tag I need to extract the elements I'm looking for.
 
 # TWITTER: how do people talk about smart cities?
 
