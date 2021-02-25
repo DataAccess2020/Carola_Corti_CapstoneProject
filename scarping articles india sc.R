@@ -44,10 +44,7 @@ mycorp <-corpus(smart_c_debate)
 myDfm <- dfm(mycorp , remove = stopwords("english"), tolower = TRUE,
              remove_punct = TRUE, remove_numbers=TRUE, remove_symbols=TRUE)
 
-textplot_wordcloud(myDfm ,
-                   color = c('black', 'red', 'green', 'purple', 'orange', 'blue'))
 
 
-
-
+textplot_wordcloud(myDfm)
 
