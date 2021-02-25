@@ -8,11 +8,16 @@ output: pdf_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Abstract
+# Abstract
 
-This project aims at collecting information about the discourse above smart cities. I will focus on India's specific case, inspecting whether the debate related to smart cities' policies' implementation in such country develops positively or negatively, what topics are the mostly discussed and which are the most
-problematic issues related to it. The research will be composed of two main parts. In the first part, I will provide sentiment and topic analyses processing a corpus of articles about India's smart cities development. In the second part, by interacting with the Twitter and Google Maps APIs, I will download via geographical selection the latest 2000 tweets written in India, containing the words "smart cities" and "Covid-19" . The analyses will be run, on the one hand, in order to identify the main debated topics within the smart cities broader narratives; on the other hand, to capture the overall sentiment among the texts to draw a better picture of how smart cities are perceived and what can be addressed as a criticisms or advantage in the implementation of such urban planning decisions, especially in light of the Covid-19 health emergency and the known overcrowding, poverty and diseased conditions common to many Indian cities.
+This project aims at collecting information about the discourse above smart cities. I will focus on India's specific case, inspecting whether the debate related to smart cities' policies' implementation in such country develops positively or negatively, what topics are the mostly discussed and which are the most problematic issues related to it. The research will be composed of two main parts. In the first part, I will provide sentiment and topic analyses processing a corpus of articles about India's smart cities development. In the second part, by interacting with the Twitter and Google Maps APIs, I will download via geographical selection the latest 2000 tweets written in India, containing the words "smart cities" and "Covid-19" . The analyses will be run, on the one hand, in order to identify the main debated topics within the smart cities broader narratives; on the other hand, to capture the overall sentiment among the texts to draw a better picture of how smart cities are perceived and what can be addressed as a criticisms or advantage in the implementation of such urban planning decisions, especially in light of the Covid-19 health emergency and the known overcrowding, poverty and diseased conditions common to many Indian cities.
 
+# Introduction
 
+# URBANET: scraping articles about India smart urban planning
 
-##
+# TWITTER: how do people talk about smart cities?
+
+# Conclusions
+
+# References
