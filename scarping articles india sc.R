@@ -16,7 +16,7 @@
 library(httr)
 library(rvest)
 
-url <-"https://www.urbanet.info/tag/india/"
+url <-"https://india.smartcitiescouncil.com/category-news "
 session <- html_session(url, 
                         add_headers(version = version$version.string
                         ))
@@ -28,10 +28,28 @@ download.file(url, destfile = here::here ("mypage.html"))
 
 # 3) Insert the selected CSS path  
 
-Date <- read_html(here::here("mypage.html")) %>%
-  html_nodes(".rich-snippet-hidden+ span") %>% html_text()
+#Date <- read_html(here::here("mypage.html")) %>%
+#  html_nodes(".rich-snippet-hidden+ span") %>% html_text()
 
-Article <- read_html(here::here("mypage.html")) %>%
-  html_nodes("#posts-container .fusion-alignleft") %>% html_text()
+#Date
 
-Article
+Dates <- read_html(here::here("mypage.html")) %>%
+  html_nodes(".date-display-single") %>% html_text()
+
+Dates
+
+
+Preview <- read_html(here::here("mypage.html")) %>%
+  html_nodes("p") %>% html_text()
+
+Preview
+
+Link <- read_html(here::here("mypage.html")) %>%
+  html_nodes("#block-system-main .first a , .views-row-first p") %>% 
+  html_attr("href") %>% paste ("https://india.smartcitiescouncil.com", ., sep = "")
+
+Link 
+
+  
+
+
