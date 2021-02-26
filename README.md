@@ -1,2 +1,3 @@
-# Capstone Prj 
-My capstone prj (the readme file will be added next)
+# Data Access And Regulation Capstone Project
+
+Smart cities in India: sketching public opinion trends on smart urban planning policies
