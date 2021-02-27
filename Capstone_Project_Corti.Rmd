@@ -40,15 +40,17 @@ In the next sessions I will analyze the sentiment and the mainly addressed topic
 
 # Building a corpus of articles via web scraping: Smart Cities Council India  
 
-## /robots.txt file inspection
+## Step 1: /robots.txt file inspection
 
 To check whether the website's rules permitted to perform web scraping on that page, i checked the robots.txt file. As a result, the following lines of code are shown:
 
 The website shows it instructions to web robots by using the Robots Exclusion Protocol. The first line tells us this section applies to all robots; the second tells no robot can crawl the "/wp-admin/" page, namely the control dashboard of the entire WordPress website, while the last one tells the website is allowed to be crawled.
 
-## Selecting CSS paths from the DOM structure via Selector Gadget
+## Step 2: Selecting CSS paths from the DOM structure via Selector Gadget
 
 After having inspected the /robots.txt file, I've selected the parts of the web page I need to take into account to build the corpus on which I'll perform text analytics. I'll use selector Gadget, which will help me generating by a simple point-click operation the CSS tag I need to extract the elements I'm looking for.
+
+## Step 3: extracting the articles
 
 # TWITTER: how do people talk about smart cities?
 
