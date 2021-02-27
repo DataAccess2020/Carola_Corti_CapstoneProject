@@ -38,9 +38,15 @@ How have smart cities addressed the pandemic in India? What issues and what type
 
 In the next sessions I will analyze the sentiment and the mainly addressed topics and issues related on the one side to smart urban planning policies implementations in such country, while on the other side taking into account the role Covid-19 has played in such context.
 
-# Building a corpus of articles via web scraping: Smart Cities Council India  
+# Text analyses of the Financial Express articles about smart cities
 
-## Step 1: /robots.txt file inspection
+## Scraping the articles from the Financial Express web page
+
+***The Financial Express*** is an Indian English -language business newspaper owned by The Indian Express Group, which has been published since 1961. The newspaper specializes in Indian and international business and financial ...
+
+The articles were imported in R following a series of web scraping operations using the R packages Rvest, Httr and Stringr, in order to download textual information to build a corpus by using the Quanteda package and, eventually, analyze it performing text analytics. The aim, here, is to download the whole articles' texts from pages 1 to 5 from the Financial Express website's smart cities- dedicated session.
+
+### Step 1: /robots.txt file inspection
 
 To check whether the website's rules permitted to perform web scraping on that page, i checked the robots.txt file. As a result, the following lines of code are shown:
 
