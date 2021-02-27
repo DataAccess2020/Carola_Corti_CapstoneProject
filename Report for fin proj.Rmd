@@ -1,5 +1,5 @@
 ---
-title: "Smart cities in India: sketching public opinion trends on smart urban planning policies"
+title: "Smart cities in India: sketching public opinion trends on smart urban planning policies' narratives"
 subtitle: "Data Analytics for Politics Society and Complex Organizations"
 author: "Carola Corti - 961514"
 date: "February 2021"
@@ -30,7 +30,7 @@ However, it is precisely in India that incredibly avant-garde realities can be o
 
 The model of citizenship that is usually offered in smart cities contexts expects, in fact, on the one hand citizens to become "*netizens*", and, on the other, to re-configure citizenship models by instrumentalizing technology and data, reinforcing, as an unintended consequence, the patterns of exclusion for marginalized groups within the urban society, even though citizen consultation and participation are often described as the heart of smart city proposals. It is indeed not immediate for all citizens to participate actively in smart cities projects, and, whether some can, other are excluded, leading to the exacerbation of existing urban historical, material and social inequalities (Katherine S.Willis, 2019).
 
-The city of Chennai, Located on the Coromandel Coast of the Bay of Bengal, provided clear example of the possible implications such urban planning policies have generated for marginalized communities.
+For instance, the city of Chennai, Located on the Coromandel Coast of the Bay of Bengal, provides clear example of the possible implications such urban planning policies have generated for marginalized communities. In Chennai, the area-based development proposals were mainly focused around the assurance of electrical and water supply, the recycling of waste water, waste management, rain water harvesting and management at households and community levels and Wi-Fi connectivity in order to integrate public transports' utilities. In spite of what could appear at first glance, as Katherine S. Willis points out in her research on India's smart cities projects, the proposed solutions, although trying to lead to concrete changes in the life-quality within the city area, failed to recognize or give value to the existing urban informality, being rather driven and rationalized by technological deterministic market plans. Urban Informality appeared to be therefore treated as a set of conditions and resources equivalent to "leaks" in a system that needed to be optimized and rationalized. As a consequence, many plans outlined in 2016 for the Smart City Chennai have failed to be realized.
 
 # URBANET: scraping and analyzing articles about smart urban planning in India
 
