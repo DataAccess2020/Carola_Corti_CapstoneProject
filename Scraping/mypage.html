@@ -1,0 +1,530 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML+RDFa 1.1//EN">
+<html lang="en" dir="ltr" version="HTML+RDFa 1.1"
+  xmlns:fb="http://www.facebook.com/2008/fbml"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:dc="http://purl.org/dc/terms/"
+  xmlns:foaf="http://xmlns.com/foaf/0.1/"
+  xmlns:og="http://ogp.me/ns#"
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xmlns:sioc="http://rdfs.org/sioc/ns#"
+  xmlns:sioct="http://rdfs.org/sioc/types#"
+  xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={licenseKey:"NRJS-8a02d7f520dd1b9f8f1",applicationID:"230868255"};window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var i=t[n]={exports:{}};e[n][0].call(i.exports,function(t){var i=e[n][1][t];return r(i||t)},i,i.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(e,t,n){function r(){}function i(e,t,n){return function(){return o(e,[u.now()].concat(c(arguments)),t?null:this,n),t?void 0:this}}var o=e("handle"),a=e(6),c=e(7),f=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(e,t){s[t]=i(p+t,!0,"api")}),s.addPageAction=i(p+"addPageAction",!0),s.setCurrentRouteName=i(p+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,i="function"==typeof t;return o(l+"tracer",[u.now(),e,n],r),function(){if(f.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return t.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],n),e}finally{f.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=i(l+t)}),newrelic.noticeError=function(e,t){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,t])}},{}],2:[function(e,t,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,c=e(8);t.exports=r,t.exports.offset=a,t.exports.getLastTimestamp=i},{}],3:[function(e,t,n){function r(e,t){var n=e.getEntries();n.forEach(function(e){"first-paint"===e.name?d("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&d("timing",["fcp",Math.floor(e.startTime)])})}function i(e,t){var n=e.getEntries();n.length>0&&d("lcp",[n[n.length-1]])}function o(e){e.getEntries().forEach(function(e){e.hadRecentInput||d("cls",[e])})}function a(e){if(e instanceof m&&!g){var t=Math.round(e.timeStamp),n={type:e.type};t<=p.now()?n.fid=p.now()-t:t>p.offset&&t<=Date.now()?(t-=p.offset,n.fid=p.now()-t):t=p.now(),g=!0,d("timing",["fi",t,n])}}function c(e){d("pageHide",[p.now(),e])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var f,u,s,d=e("handle"),p=e("loader"),l=e(5),m=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){f=new PerformanceObserver(r);try{f.observe({entryTypes:["paint"]})}catch(v){}u=new PerformanceObserver(i);try{u.observe({entryTypes:["largest-contentful-paint"]})}catch(v){}s=new PerformanceObserver(o);try{s.observe({type:"layout-shift",buffered:!0})}catch(v){}}if("addEventListener"in document){var g=!1,w=["click","keydown","mousedown","pointerdown","touchstart"];w.forEach(function(e){document.addEventListener(e,a,!1)})}l(c)}},{}],4:[function(e,t,n){function r(e,t){if(!i)return!1;if(e!==i)return!1;if(!t)return!0;if(!o)return!1;for(var n=o.split("."),r=t.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,f=c.match(a);f&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=f[1])}t.exports={agent:i,version:o,match:r}},{}],5:[function(e,t,n){function r(e){function t(){e(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,t,!1)}t.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],6:[function(e,t,n){function r(e,t){var n=[],r="",o=0;for(r in e)i.call(e,r)&&(n[o]=t(r,e[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],7:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,i=n-t||0,o=Array(i<0?0:i);++r<i;)o[r]=e[t+r];return o}t.exports=r},{}],8:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function i(e){function t(e){return e&&e instanceof r?e:e?u(e,f,a):a()}function n(n,r,i,o,a){if(a!==!1&&(a=!0),!l.aborted||o){e&&a&&e(n,r,i);for(var c=t(i),f=v(n),u=f.length,s=0;s<u;s++)f[s].apply(c,r);var p=d[h[n]];return p&&p.push([b,n,r,c]),c}}function o(e,t){y[e]=v(e).concat(t)}function m(e,t){var n=y[e];if(n)for(var r=0;r<n.length;r++)n[r]===t&&n.splice(r,1)}function v(e){return y[e]||[]}function g(e){return p[e]=p[e]||i(n)}function w(e,t){s(e,function(e,n){t=t||"feature",h[n]=t,t in d||(d[t]=[])})}var y={},h={},b={on:o,addEventListener:o,removeEventListener:m,emit:n,get:g,listeners:v,context:t,buffer:w,abort:c,aborted:!1};return b}function o(e){return u(e,f,a)}function a(){return new r}function c(){(d.api||d.feature)&&(l.aborted=!0,d=l.backlog={})}var f="nr@context",u=e("gos"),s=e(6),d={},p={},l=t.exports=i();t.exports.getOrSetContext=o,l.backlog=d},{}],gos:[function(e,t,n){function r(e,t,n){if(i.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[t]=r,r}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){i.buffer([e],r),i.emit(e,t,n)}var i=e("ee").get("handle");t.exports=r,r.ee=i},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=b.info=NREUM.info,t=p.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return u.abort();f(y,function(t,n){e[t]||(e[t]=n)});var n=a();c("mark",["onload",n+b.offset],null,"api"),c("timing",["load",n]);var r=p.createElement("script");r.src="https://"+e.agent,t.parentNode.insertBefore(r,t)}}function i(){"complete"===p.readyState&&o()}function o(){c("mark",["domContent",a()+b.offset],null,"api")}var a=e(2),c=e("handle"),f=e(6),u=e("ee"),s=e(4),d=window,p=d.document,l="addEventListener",m="attachEvent",v=d.XMLHttpRequest,g=v&&v.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:v,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var w=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1198.min.js"},h=v&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),b=t.exports={offset:a.getLastTimestamp(),now:a,origin:w,features:{},xhrWrappable:h,userAgent:s};e(1),e(3),p[l]?(p[l]("DOMContentLoaded",o,!1),d[l]("load",r,!1)):(p[m]("onreadystatechange",i),d[m]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var x=0},{}],"wrap-function":[function(e,t,n){function r(e,t){function n(t,n,r,f,u){function nrWrapper(){var o,a,s,p;try{a=this,o=d(arguments),s="function"==typeof r?r(o,a):r||{}}catch(l){i([l,"",[o,a,f],s],e)}c(n+"start",[o,a,f],s,u);try{return p=t.apply(a,o)}catch(m){throw c(n+"err",[o,a,m],s,u),m}finally{c(n+"end",[o,a,p],s,u)}}return a(t)?t:(n||(n=""),nrWrapper[p]=t,o(t,nrWrapper,e),nrWrapper)}function r(e,t,r,i,o){r||(r="");var c,f,u,s="-"===r.charAt(0);for(u=0;u<t.length;u++)f=t[u],c=e[f],a(c)||(e[f]=n(c,s?f+r:r,i,f,o))}function c(n,r,o,a){if(!m||t){var c=m;m=!0;try{e.emit(n,r,o,t,a)}catch(f){i([f,n,r,o],e)}m=c}}return e||(e=s),n.inPlace=r,n.flag=p,n}function i(e,t){t||(t=s);try{t.emit("internal-error",e)}catch(n){}}function o(e,t,n){if(Object.defineProperty&&Object.keys)try{var r=Object.keys(e);return r.forEach(function(n){Object.defineProperty(t,n,{get:function(){return e[n]},set:function(t){return e[n]=t,t}})}),t}catch(o){i([o],n)}for(var a in e)l.call(e,a)&&(t[a]=e[a]);return t}function a(e){return!(e&&e instanceof Function&&e.apply&&!e[p])}function c(e,t){var n=t(e);return n[p]=e,o(e,n,s),n}function f(e,t,n){var r=e[t];e[t]=c(r,n)}function u(){for(var e=arguments.length,t=new Array(e),n=0;n<e;++n)t[n]=arguments[n];return t}var s=e("ee"),d=e(7),p="nr@original",l=Object.prototype.hasOwnProperty,m=!1;t.exports=r,t.exports.wrapFunction=c,t.exports.wrapInPlace=f,t.exports.argsToArray=u},{}]},{},["loader"]);</script>
+<link rel="shortcut icon" href="https://india.smartcitiescouncil.com/misc/favicon.ico" type="image/vnd.microsoft.icon" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<meta name="generator" content="Drupal 7 (https://www.drupal.org)" />
+<link rel="canonical" href="https://india.smartcitiescouncil.com/category-news" />
+<link rel="shortlink" href="https://india.smartcitiescouncil.com/category-news" />
+<link href='//fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Lato:700' rel='stylesheet' type='text/css'>
+  <title>Smart Cities Council India | News</title>  
+  <link type="text/css" rel="stylesheet" href="https://india.smartcitiescouncil.com/sites/default/files/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://india.smartcitiescouncil.com/sites/default/files/css/css_Eh0627De5PKsOB09hK0z8HQuwdNsKG98Fr_0ru_MfdE.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://india.smartcitiescouncil.com/sites/default/files/css/css_qBMf_V7bxE48JjawAukKD8c8dTeQ8Iy168p7vHoHFVQ.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://india.smartcitiescouncil.com/sites/default/files/css/css_Fu41e_58OyY4vZlSxMNYkkSEcNNeZCb-p_11r66Qq5A.css" media="print" />
+<link type="text/css" rel="stylesheet" href="https://india.smartcitiescouncil.com/sites/default/files/css/css_EUlxYQtJ3GzMtnpcfRsB_Z4m9-BJq98CKy_WdMEwEvQ.css" media="all" />
+
+<!--[if (lt IE 9)&(!IEMobile)]>
+<link type="text/css" rel="stylesheet" href="https://india.smartcitiescouncil.com/sites/default/files/css/css_IE6HgCSszPth6ZhFdJZT7RGaDVF0O2ZcxILAiG6rpaU.css" media="all" />
+<![endif]-->
+
+<!--[if gte IE 9]><!-->
+<link type="text/css" rel="stylesheet" href="https://india.smartcitiescouncil.com/sites/default/files/css/css_7sRoZD-O4FbswT827mPb05ECpPNDvTtg_URGd5hNC2g.css" media="all" />
+<!--<![endif]-->
+  <script type="text/javascript" src="https://india.smartcitiescouncil.com/sites/default/files/js/js_np5hG0qdM7P7mTEQlpubSVNWbKmwHPUgNGFHmxOOzp8.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+window.google_analytics_uacct = "UA-31365064-2";
+//--><!]]>
+</script>
+<script type="text/javascript" src="https://india.smartcitiescouncil.com/sites/default/files/js/js_wKyFX46tVKJtPKN12qNjRfS4aubW4G2u7LK22vlDiKo.js"></script>
+<script type="text/javascript" src="https://india.smartcitiescouncil.com/sites/default/files/js/js_Uz-6n0zsYREdjUaLkeybJlHRejhMhI3vAUhucMBLd-0.js"></script>
+<script type="text/javascript" src="https://india.smartcitiescouncil.com/sites/default/files/js/js_QA_5VmriLyUxJ8mh06OaYGZQMyUKkaMlY7kt5K5xGSU.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","https://www.google-analytics.com/analytics.js","ga");ga("create", "UA-31365064-2", {"cookieDomain":"auto"});ga("send", "pageview");
+//--><!]]>
+</script>
+<script type="text/javascript" src="https://india.smartcitiescouncil.com/sites/default/files/js/js_7y0NJSF1K7M_FrClF0swrHzLE09__sQ2P3QfqgTrqaQ.js"></script>
+<script type="text/javascript" src="https://india.smartcitiescouncil.com/sites/default/files/js/js_43n5FBy8pZxQHxPXkf-sQF7ZiacVZke14b0VlvSA554.js"></script>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"scc_india_omega","theme_token":"ECfTzqx2O2DLEbco4_DFAy1iYvb7LtLseqvzUwEejHQ","js":{"0":1,"sites\/all\/modules\/eu_cookie_compliance\/js\/eu_cookie_compliance.js":1,"sites\/all\/modules\/addthis\/addthis.js":1,"public:\/\/google_tag\/google_tag.script.js":1,"1":1,"sites\/all\/modules\/jquery_update\/replace\/jquery\/1.8\/jquery.min.js":1,"misc\/jquery-extend-3.4.0.js":1,"misc\/jquery-html-prefilter-3.5.0-backport.js":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/modules\/nice_menus\/js\/jquery.bgiframe.js":1,"sites\/all\/modules\/nice_menus\/js\/jquery.hoverIntent.js":1,"sites\/all\/modules\/nice_menus\/js\/superfish.js":1,"sites\/all\/modules\/nice_menus\/js\/nice_menus.js":1,"sites\/all\/modules\/eu_cookie_compliance\/js\/jquery.cookie-1.4.1.min.js":1,"sites\/all\/modules\/google_admanager\/google_admanager.js":1,"sites\/all\/modules\/jcaption\/jcaption.js":1,"sites\/all\/modules\/custom_search\/js\/custom_search.js":1,"sites\/all\/modules\/better_exposed_filters\/better_exposed_filters.js":1,"sites\/all\/modules\/_custom\/shawnjon\/shawnjon_ui\/js\/shawnjon_ui_search.js":1,"sites\/all\/modules\/responsive_menus\/styles\/meanMenu\/jquery.meanmenu.min.js":1,"sites\/all\/modules\/responsive_menus\/styles\/meanMenu\/responsive_menus_mean_menu.js":1,"sites\/all\/modules\/google_analytics\/googleanalytics.js":1,"2":1,"sites\/all\/modules\/_custom\/shawnjon\/shawnjon_readiness_guide\/js\/shawnjon_readiness_guide.js":1,"sites\/all\/themes\/omega\/omega\/js\/jquery.formalize.js":1,"sites\/all\/themes\/omega\/omega\/js\/omega-mediaqueries.js":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"modules\/comment\/comment.css":1,"sites\/all\/modules\/date\/date_api\/date.css":1,"sites\/all\/modules\/date\/date_popup\/themes\/datepicker.1.7.css":1,"sites\/all\/modules\/domain\/domain_nav\/domain_nav.css":1,"modules\/field\/theme\/field.css":1,"sites\/all\/modules\/logintoboggan\/logintoboggan.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/views\/css\/views.css":1,"sites\/all\/modules\/media\/modules\/media_wysiwyg\/css\/media_wysiwyg.base.css":1,"sites\/all\/modules\/ctools\/css\/ctools.css":1,"sites\/all\/modules\/google_admanager\/google_admanager.css":1,"sites\/all\/modules\/taxonomy_access\/taxonomy_access.css":1,"sites\/all\/modules\/_custom\/shawnjon\/shawnjon_ui\/css\/shawnjon_ui_search.css":1,"sites\/all\/modules\/nice_menus\/css\/nice_menus.css":1,"sites\/all\/modules\/nice_menus\/css\/nice_menus_default.css":1,"sites\/all\/modules\/responsive_menus\/styles\/meanMenu\/meanmenu.min.css":1,"sites\/all\/modules\/eu_cookie_compliance\/css\/eu_cookie_compliance.css":1,"sites\/all\/modules\/_custom\/shawnjon\/shawnjon_readiness_guide\/css\/shawnjon_readiness_guide.css":1,"public:\/\/ctools\/css\/8695a9d3e23511e74e4cde79b7ae1666.css":1,"sites\/all\/themes\/scc_omega\/css\/print.css":1,"sites\/all\/themes\/omega\/alpha\/css\/alpha-reset.css":1,"sites\/all\/themes\/omega\/alpha\/css\/alpha-mobile.css":1,"sites\/all\/themes\/omega\/alpha\/css\/alpha-alpha.css":1,"sites\/all\/themes\/omega\/omega\/css\/formalize.css":1,"sites\/all\/themes\/omega\/omega\/css\/omega-text.css":1,"sites\/all\/themes\/omega\/omega\/css\/omega-branding.css":1,"sites\/all\/themes\/omega\/omega\/css\/omega-menu.css":1,"sites\/all\/themes\/omega\/omega\/css\/omega-forms.css":1,"sites\/all\/themes\/omega\/omega\/css\/omega-visuals.css":1,"sites\/all\/themes\/scc_omega\/css\/global.css":1,"sites\/all\/themes\/scc_india_omega\/css\/india.css":1,"ie::normal::sites\/all\/themes\/scc_omega\/css\/scc-omega-alpha-default.css":1,"ie::normal::sites\/all\/themes\/scc_omega\/css\/scc-omega-alpha-default-normal.css":1,"ie::normal::sites\/all\/themes\/omega\/alpha\/css\/grid\/alpha_default\/normal\/alpha-default-normal-12.css":1,"normal::sites\/all\/themes\/scc_omega\/css\/scc-omega-alpha-default.css":1,"normal::sites\/all\/themes\/scc_omega\/css\/scc-omega-alpha-default-normal.css":1,"sites\/all\/themes\/omega\/alpha\/css\/grid\/alpha_default\/normal\/alpha-default-normal-12.css":1}},"jcaption":{"jcaption_selectors":[".image-inline_620x250_scale",".image-inline_520x200_scale",".image-inline_280x200_scale",".image-inline_250x250_scale",".image-inline_200x400_scale",".image-inline_125x125_scale",".image-inline_090x130_scale"],"jcaption_alt_title":"title","jcaption_requireText":1,"jcaption_copyStyle":1,"jcaption_removeStyle":1,"jcaption_removeClass":1,"jcaption_removeAlign":1,"jcaption_copyAlignmentToClass":1,"jcaption_copyFloatToClass":1,"jcaption_copyClassToClass":1,"jcaption_autoWidth":1,"jcaption_keepLink":0,"jcaption_styleMarkup":"","jcaption_animate":0,"jcaption_showDuration":"200","jcaption_hideDuration":"200"},"custom_search":{"form_target":"_self","solr":0},"better_exposed_filters":{"views":{"category_page":{"displays":{"category_news":{"filters":[]}}},"top_resources":{"displays":{"block":{"filters":[]}}},"top_videos":{"displays":{"block":{"filters":[]}}},"2017_top_news":{"displays":{"top_news_india":{"filters":[]}}},"fp_2015_header":{"displays":{"block":{"filters":[]}}}},"datepicker":false,"slider":false,"settings":[],"autosubmit":false},"urlIsAjaxTrusted":{"\/search-scc":true},"nice_menus_options":{"delay":"500","speed":"fast"},"responsive_menus":[{"selectors":"#block-nice-menus-1 .content, #block-nice-menus-4 .content, #block-nice-menus-6 .content, #block-nice-menus-11 .content","container":"body","trigger_txt":"","close_txt":"X","close_size":"18px","position":"right","media_size":"970","show_children":"1","expand_children":"1","expand_txt":"+","contract_txt":"-","remove_attrs":"1","responsive_menus_style":"mean_menu"}],"eu_cookie_compliance":{"cookie_policy_version":"1.0.0","popup_enabled":1,"popup_agreed_enabled":0,"popup_hide_agreed":0,"popup_clicking_confirmation":false,"popup_scrolling_confirmation":false,"popup_html_info":"\u003Cdiv class=\u0022eu-cookie-compliance-banner eu-cookie-compliance-banner-info eu-cookie-compliance-banner--opt-in\u0022\u003E\n  \u003Cdiv class=\u0022popup-content info\u0022\u003E\n    \u003Cdiv id=\u0022popup-text\u0022\u003E\n      \u003C!--smart_paging_filter--\u003E\u003C!--smart_paging_autop_filter--\u003E\u003Ch2\u003EWe use cookies on this site to enhance your user experience\u003C\/h2\u003E\u003Cp\u003E\u003Cspan\u003EPer our updated cookies policy, we use cookies to track your browsing behavior on our site and provide you with ads or other information that may be relevant to you. To view our cookies policy in full, \u003Ca href=\u0022\/\/india.smartcitiescouncil.com\/article\/smart-cities-council-cookie-statement\u0022 target=\u0022_blank\u0022\u003E\u003Cstrong\u003Eclick here\u003C\/strong\u003E\u003C\/a\u003E.\u0026nbsp;\u003Cspan\u003E By continuing to use our site, you agree to these terms.\u003C\/span\u003E\u003C\/span\u003E\u003C\/p\u003E              \u003Cbutton type=\u0022button\u0022 class=\u0022find-more-button eu-cookie-compliance-more-button\u0022\u003ENo, give me more info\u003C\/button\u003E\n          \u003C\/div\u003E\n    \n    \u003Cdiv id=\u0022popup-buttons\u0022 class=\u0022\u0022\u003E\n      \u003Cbutton type=\u0022button\u0022 class=\u0022agree-button eu-cookie-compliance-secondary-button\u0022\u003EOK, I agree\u003C\/button\u003E\n              \u003Cbutton type=\u0022button\u0022 class=\u0022decline-button eu-cookie-compliance-default-button\u0022 \u003ENo, thanks\u003C\/button\u003E\n          \u003C\/div\u003E\n  \u003C\/div\u003E\n\u003C\/div\u003E","use_mobile_message":false,"mobile_popup_html_info":"\u003Cdiv class=\u0022eu-cookie-compliance-banner eu-cookie-compliance-banner-info eu-cookie-compliance-banner--opt-in\u0022\u003E\n  \u003Cdiv class=\u0022popup-content info\u0022\u003E\n    \u003Cdiv id=\u0022popup-text\u0022\u003E\n      \u003C!--smart_paging_filter--\u003E\u003C!--smart_paging_autop_filter--\u003E              \u003Cbutton type=\u0022button\u0022 class=\u0022find-more-button eu-cookie-compliance-more-button\u0022\u003ENo, give me more info\u003C\/button\u003E\n          \u003C\/div\u003E\n    \n    \u003Cdiv id=\u0022popup-buttons\u0022 class=\u0022\u0022\u003E\n      \u003Cbutton type=\u0022button\u0022 class=\u0022agree-button eu-cookie-compliance-secondary-button\u0022\u003EOK, I agree\u003C\/button\u003E\n              \u003Cbutton type=\u0022button\u0022 class=\u0022decline-button eu-cookie-compliance-default-button\u0022 \u003ENo, thanks\u003C\/button\u003E\n          \u003C\/div\u003E\n  \u003C\/div\u003E\n\u003C\/div\u003E\n","mobile_breakpoint":"768","popup_html_agreed":"\u003Cdiv\u003E\n  \u003Cdiv class=\u0022popup-content agreed\u0022\u003E\n    \u003Cdiv id=\u0022popup-text\u0022\u003E\n      \u003C!--smart_paging_filter--\u003E\u003C!--smart_paging_autop_filter--\u003E\u003Ch2\u003EThank you for accepting cookies\u003C\/h2\u003E\u003Cp\u003EYou can now hide this message or find out more about cookies.\u003C\/p\u003E    \u003C\/div\u003E\n    \u003Cdiv id=\u0022popup-buttons\u0022\u003E\n      \u003Cbutton type=\u0022button\u0022 class=\u0022hide-popup-button eu-cookie-compliance-hide-button\u0022\u003EHide\u003C\/button\u003E\n              \u003Cbutton type=\u0022button\u0022 class=\u0022find-more-button eu-cookie-compliance-more-button-thank-you\u0022 \u003EMore info\u003C\/button\u003E\n          \u003C\/div\u003E\n  \u003C\/div\u003E\n\u003C\/div\u003E","popup_use_bare_css":false,"popup_height":"auto","popup_width":"100%","popup_delay":1000,"popup_link":"\/article\/smart-cities-council-help-center","popup_link_new_window":1,"popup_position":null,"fixed_top_position":1,"popup_language":"en","store_consent":true,"better_support_for_screen_readers":0,"reload_page":0,"domain":"smartcitiescouncil.com","domain_all_sites":0,"popup_eu_only_js":0,"cookie_lifetime":"120","cookie_session":false,"disagree_do_not_show_popup":0,"method":"opt_in","allowed_cookies":"","withdraw_markup":"\u003Cbutton type=\u0022button\u0022 class=\u0022eu-cookie-withdraw-tab\u0022\u003EPrivacy settings\u003C\/button\u003E\n\u003Cdiv class=\u0022eu-cookie-withdraw-banner\u0022\u003E\n  \u003Cdiv class=\u0022popup-content info\u0022\u003E\n    \u003Cdiv id=\u0022popup-text\u0022\u003E\n      \u003Cp\u003E\u0026lt;h2\u0026gt;We use cookies on this site to enhance your user experience\u0026lt;\/h2\u0026gt;\u0026lt;p\u0026gt;You have given your consent for us to set cookies.\u0026lt;\/p\u0026gt;\u003C\/p\u003E\n    \u003C\/div\u003E\n    \u003Cdiv id=\u0022popup-buttons\u0022\u003E\n      \u003Cbutton type=\u0022button\u0022 class=\u0022eu-cookie-withdraw-button\u0022\u003EWithdraw consent\u003C\/button\u003E\n    \u003C\/div\u003E\n  \u003C\/div\u003E\n\u003C\/div\u003E\n","withdraw_enabled":false,"withdraw_button_on_info_popup":0,"cookie_categories":[],"cookie_categories_details":[],"enable_save_preferences_button":1,"cookie_name":"SCC20180601","containing_element":"body","automatic_cookies_removal":""},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls|xml|z|zip"},"omega":{"layouts":{"primary":"normal","order":["normal"],"queries":{"normal":"all and (min-width: 980px) and (min-device-width: 980px), all and (max-device-width: 1024px) and (min-width: 1024px) and (orientation:landscape)"}}}});
+//--><!]]>
+</script>
+  <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+<body class="html not-front not-logged-in page-category-news domain-india context-category-news">
+  <div id="skip-link">
+    <a href="#main-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+  <div class="region region-page-top" id="region-page-top">
+  <div class="region-inner region-page-top-inner">
+    <noscript aria-hidden="true"><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5C92ZSN" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>  </div>
+</div>  <div class="page clearfix" id="page">
+      <header id="section-header" class="section section-header">
+  <div id="zone-branding-wrapper" class="zone-wrapper zone-branding-wrapper clearfix">  
+  <div id="zone-branding" class="zone zone-branding clearfix container-12">
+    <div class="grid-12 region region-branding" id="region-branding">
+  <div class="region-inner region-branding-inner">
+		        <div class="branding-data clearfix">
+					              <div class="logo-img">
+								<a href="/" rel="home" title=""><img src="https://india.smartcitiescouncil.com/sites/all/themes/scc_india_omega/logo.png" alt="" id="logo" /></a>              </div>
+										        </div>
+		    <div class="block block-views search-form-header block--exp-search-page block-views-exp-search-page odd block-without-title" id="block-views-exp-search-page">
+  <div class="block-inner clearfix">
+                
+    <div class="content clearfix">
+      <form action="/search-scc" method="get" id="views-exposed-form-search-page" accept-charset="UTF-8"><div><div class="views-exposed-form">
+  <div class="views-exposed-widgets clearfix">
+          <div id="edit-keys-wrapper" class="views-exposed-widget views-widget-filter-combine">
+                        <div class="views-widget">
+          <div class="form-item form-type-textfield form-item-keys">
+ <input placeholder="Enter Search Term - Hit Enter" type="text" id="edit-keys" name="keys" value="" size="30" maxlength="128" class="form-text" />
+</div>
+<a href="/facet-search">ADVANCED GLOBAL SEARCH</a>        </div>
+              </div>
+                    <div class="views-exposed-widget views-submit-button">
+      <input type="submit" id="edit-submit-search" name="" value="Search" class="form-submit" />    </div>
+      </div>
+</div>
+</div></form>    </div>
+  </div>
+</div><div class="block block-system block-menu block-user-menu block-system-user-menu even block-without-title" id="block-system-user-menu">
+  <div class="block-inner clearfix">
+                
+    <div class="content clearfix">
+      <ul class="menu"><li class="first last leaf"><a href="/user/login?current=category-news" title="">Login</a></li>
+</ul>    </div>
+  </div>
+</div>  </div>
+</div>  </div>
+</div><div id="zone-menu-wrapper" class="zone-wrapper zone-menu-wrapper clearfix">  
+  <div id="zone-menu" class="zone zone-menu clearfix container-12">
+    <div class="grid-12 region region-menu" id="region-menu">
+  <div class="region-inner region-menu-inner">
+        <nav class="navigation">
+      <h2 class="element-invisible">Main menu</h2><ul id="main-menu" class="links inline clearfix main-menu"><li class="menu-4809 first"><a href="/" title="India Home page">Home</a></li><li class="menu-4810 active-trail active"><a href="/category-news" title="India News" class="active-trail active">News</a></li><li class="menu-4811"><a href="/opportunity-calendar" title="">Opportunity Calendar</a></li><li class="menu-4296"><a href="/category-membership-india" title="Listing of Partners for India Site">Our Partners</a></li><li class="menu-1272"><a href="/smart-cities-information-center/information-center" title="">City Resources</a></li><li class="menu-4284"><a href="/article/join-smart-cities-council-india" title="Join SCC India">Join SCC</a></li><li class="menu-4276"><a href="/article/about-us-india" title="Information about SCC India">About Us</a></li><li class="menu-4278 last"><a href="/article/contact-us-india" title="This is information on how to Contact SCC India">Contact Us</a></li></ul>          </nav>
+        <div class="block block-nice-menus context-main-menu block-1 block-nice-menus-1 odd block-without-title" id="block-nice-menus-1">
+  <div class="block-inner clearfix">
+                
+    <div class="content clearfix">
+      <ul class="nice-menu nice-menu-down nice-menu-main-menu" id="nice-menu-1"><li class="menu-4809 menu-path-front first odd "><a href="/" title="India Home page">Home</a></li>
+<li class="menu-4810 menu-path-category-news active-trail  even "><a href="/category-news" title="India News" class="active">News</a></li>
+<li class="menu-4811 menu-path-partner-opportunity-calendar  odd "><a href="/opportunity-calendar" title="">Opportunity Calendar</a></li>
+<li class="menu-4296 menuparent  menu-path-category-membership-india  even "><a href="/category-membership-india" title="Listing of Partners for India Site">Our Partners</a><ul><li class="menu-4853 menu-path-member-levels-global-lead-partners first odd "><a href="/member-levels/global-lead-partners" title="Global Lead Partners">Global Lead Partners</a></li>
+<li class="menu-4297 menu-path-member-levels-lead-partners-india  even "><a href="/member-levels/lead-partners-india" title="List of Lead Partners on India Site">Lead Partners</a></li>
+<li class="menu-5914 menu-path-member-levels-innovation-partners  odd "><a href="/member-levels/innovation-partners" title="">Innovation Partners</a></li>
+<li class="menu-4364 menu-path-member-levels-associate-partners-india  even "><a href="/member-levels/associate-partners-india" title="List of India Associate Partners">Associate Partners</a></li>
+<li class="menu-4786 menu-path-node-4883  odd last"><a href="/article/smart-cities-council-partnership-program-india" title="Become a Partner">Become a Partner</a></li>
+</ul></li>
+<li class="menu-1272 menuparent  menu-path-information-center-568  odd "><a href="/smart-cities-information-center/information-center" title="">City Resources</a><ul><li class="menu-4702 menu-path-node-3905 first odd "><a href="/article/smart-cities-council-readiness-program">Readiness Program</a></li>
+<li class="menu-1266 menuparent  menu-path-information-center-568  even "><a href="/smart-cities-information-center/information-center" title="">Information Center</a><ul><li class="menu-1267 menu-path-information-center-537 first odd "><a href="/smart-cities-information-center/smart-city-concepts" title="">Smart City Concepts</a></li>
+<li class="menu-1268 menu-path-information-center-565  even "><a href="/smart-cities-information-center/smart-city-examples" title="">Smart City Examples</a></li>
+<li class="menu-1269 menu-path-information-center-558  odd last"><a href="/smart-cities-information-center/smart-city-tools" title="">Smart City Tools</a></li>
+</ul></li>
+<li class="menu-4494 menu-path-node-4815  odd last"><a href="/resources/india-readiness-guide-version-2" title="">India Readiness Guide</a></li>
+</ul></li>
+<li class="menu-4284 menu-path-node-2197  even "><a href="/article/join-smart-cities-council-india" title="Join SCC India">Join SCC</a></li>
+<li class="menu-4276 menuparent  menu-path-node-2143  odd "><a href="/article/about-us-india" title="Information about SCC India">About Us</a><ul><li class="menu-4289 menu-path-category-council-press-releases first odd "><a href="/category-council-press-releases" title="">Council Press Releases</a></li>
+<li class="menu-4941 menu-path-scc-bios-india  even "><a href="/scc-bios-india" title="India Staff">Our Staff</a></li>
+<li class="menu-4290 menu-path-category-scc-in-the-news  odd last"><a href="/category-scc-in-the-news" title="">SCC In The News</a></li>
+</ul></li>
+<li class="menu-4278 menuparent  menu-path-node-2144  even last"><a href="/article/contact-us-india" title="This is information on how to Contact SCC India">Contact Us</a><ul><li class="menu-5920 menu-path-node-6061 first odd last"><a href="/article/smart-cities-council-help-center" title="">Help Center</a></li>
+</ul></li>
+</ul>
+    </div>
+  </div>
+</div>  </div>
+</div>
+  </div>
+</div></header>    
+      <section id="section-content" class="section section-content">
+    <div class="global-alliance-menu">
+    <ul class="nice-menu nice-menu-down nice-menu-menu-global-alliance-menu" id="nice-menu-10"><li class="menu-6869 menu-path-saseansmartcitiescouncilcom- first odd "><a href="https://asean.smartcitiescouncil.com/" title="">ASEAN</a></li>
+<li class="menu-6506 menu-path-ssmartcitiescouncilcom-article-smart-cities-activator  even "><a href="https://smartcitiescouncil.com/article/smart-cities-activator" title="Activator Information !">Activator</a></li>
+<li class="menu-6501 menu-path-sanzsmartcitiescouncilcom-  odd "><a href="https://anz.smartcitiescouncil.com/" title="">Australia New Zealand</a></li>
+<li class="menu-6503 menu-path-seusmartcitiescouncilcom  even "><a href="https://eu.smartcitiescouncil.com" title="">Europe</a></li>
+<li class="menu-6500 menu-path-ssmartcitiescouncilcom  odd "><a href="https://smartcitiescouncil.com" title="">Global</a></li>
+<li class="menu-6504 menu-path-snasmartcitiescouncilcom  even "><a href="https://na.smartcitiescouncil.com" title="">North America</a></li>
+<li class="menu-6505 menu-path-srgsmartcitiescouncilcom  odd last"><a href="https://rg.smartcitiescouncil.com" title="Readiness Guide Online">Readiness Guide</a></li>
+</ul>
+  </div>
+  <div id="zone-content-wrapper" class="zone-wrapper zone-content-wrapper clearfix">  
+  <div id="zone-content" class="zone zone-content clearfix container-12">    
+          <div id="breadcrumb" class="grid-12"><h2 class="element-invisible">You are here</h2><div class="breadcrumb"><a href="/">Home</a> » <a href="/category-news" class="active">News</a></div></div>
+        
+        <div class="grid-9 region region-content" id="region-content">
+  <div class="region-inner region-content-inner">
+    <a id="main-content"></a>
+
+                <h1 class="title" id="page-title">News</h1>
+                        <div class="block block-system block-main block-system-main odd block-without-title" id="block-system-main">
+  <div class="block-inner clearfix">
+                
+    <div class="content clearfix">
+      <div class="view view-category-page view-id-category_page view-display-id-category_news category-news view-dom-id-28207d440cd750ce86d71652a7ed6136">
+        
+  
+  
+      <div class="view-content">
+        <div class="views-row views-row-1 views-row-odd views-row-first">
+    <article about="/article/tamil-nadu-tops-utilizing-central-smart-city-funds" typeof="sioc:Item foaf:Document" class="node node-article node-teaser node-published node-not-promoted node-not-sticky author-scc-india-staff odd clearfix" id="node-article-7604">
+        <header>
+    <h2 class="node-title"><a href="/article/tamil-nadu-tops-utilizing-central-smart-city-funds" title="Tamil Nadu tops in utilizing central smart city funds">Tamil Nadu tops in utilizing central smart city funds</a></h2>
+  </header>
+    <span property="dc:title" content="Tamil Nadu tops in utilizing central smart city funds" class="rdf-meta element-hidden"></span><span property="sioc:num_replies" content="0" datatype="xsd:integer" class="rdf-meta element-hidden"></span>    <footer class="submitted"><span property="dc:date dc:created" content="2021-02-19T12:51:20+05:30" datatype="xsd:dateTime">Fri, 2021-02-19 12:51</span> -- <span rel="sioc:has_creator"><span class="username" xml:lang="" about="/users/scc-india-staff" typeof="sioc:UserAccount" property="foaf:name" datatype="">SCC India Staff</span></span></footer>
+    
+  
+  <div class="content clearfix">
+    <div class="field field-name-field-publishing-date field-type-datetime field-label-hidden"><div class="field-items"><div class="field-item even"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="2021-02-18T13:30:00+05:30">02/18/2021</span></div></div></div><div class="field field-name-body field-type-text-with-summary field-label-hidden clearfix">
+        <div class="field-items">
+                    <div class="field-item even"
+                 property="content:encoded">
+                <p>Though smart cities in Tamil Nadu may not be topping the charts, the State is the best performer among bigger States as far as utilization of Union government funds is concerned. Data tabled in Parliament show that Tamil Nadu had utilized 97 % of the Rs 3,189 crore allotted to it by the Centre.</p>
+            </div>
+            </div>
+</div>  </div>
+  
+  <div class="clearfix">
+          <nav class="links node-links clearfix"><ul class="links inline"><li class="node-readmore first"><a href="/article/tamil-nadu-tops-utilizing-central-smart-city-funds" rel="tag" title="Tamil Nadu tops in utilizing central smart city funds">Read more<span class="element-invisible"> about Tamil Nadu tops in utilizing central smart city funds</span></a></li><li class="comment_forbidden last"><span><a href="/user/login?destination=node/7604%23comment-form">Log in</a> or <a href="/user/register?destination=node/7604%23comment-form">register</a> to post comments</span></li></ul></nav>
+    
+      </div>
+</article>  </div>
+  <div class="views-row views-row-2 views-row-even">
+    <article about="/article/amritsar-enhance-aseismic-resistance-components-building-structures-other-cities-can-take-cue" typeof="sioc:Item foaf:Document" class="node node-article node-teaser node-published node-not-promoted node-not-sticky author-scc-india-staff even clearfix" id="node-article-7603">
+        <header>
+    <h2 class="node-title"><a href="/article/amritsar-enhance-aseismic-resistance-components-building-structures-other-cities-can-take-cue" title="Amritsar to enhance aseismic resistance components in building structures (other cities can take a cue)">Amritsar to enhance aseismic resistance components in building structures (other cities can take a cue)</a></h2>
+  </header>
+    <span property="dc:title" content="Amritsar to enhance aseismic resistance components in building structures (other cities can take a cue)" class="rdf-meta element-hidden"></span><span property="sioc:num_replies" content="0" datatype="xsd:integer" class="rdf-meta element-hidden"></span>    <footer class="submitted"><span property="dc:date dc:created" content="2021-02-19T12:33:56+05:30" datatype="xsd:dateTime">Fri, 2021-02-19 12:33</span> -- <span rel="sioc:has_creator"><span class="username" xml:lang="" about="/users/scc-india-staff" typeof="sioc:UserAccount" property="foaf:name" datatype="">SCC India Staff</span></span></footer>
+    
+  
+  <div class="content clearfix">
+    <div class="field field-name-field-publishing-date field-type-datetime field-label-hidden"><div class="field-items"><div class="field-item even"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="2021-02-18T13:30:00+05:30">02/18/2021</span></div></div></div><div class="field field-name-body field-type-text-with-summary field-label-hidden clearfix">
+        <div class="field-items">
+                    <div class="field-item even"
+                 property="content:encoded">
+                <p>Though Amritsar was erroneously described as the epicenter of a 5.9 magnitude earthquake, the tremors awakened the ‘unsuspecting’ authorities from the slumber on earthquake unsafe building structures and forced them to contemplate taking preventive measures against the seismic hazards.</p>
+            </div>
+            </div>
+</div>  </div>
+  
+  <div class="clearfix">
+          <nav class="links node-links clearfix"><ul class="links inline"><li class="node-readmore first"><a href="/article/amritsar-enhance-aseismic-resistance-components-building-structures-other-cities-can-take-cue" rel="tag" title="Amritsar to enhance aseismic resistance components in building structures (other cities can take a cue)">Read more<span class="element-invisible"> about Amritsar to enhance aseismic resistance components in building structures (other cities can take a cue)</span></a></li><li class="comment_forbidden last"><span><a href="/user/login?destination=node/7603%23comment-form">Log in</a> or <a href="/user/register?destination=node/7603%23comment-form">register</a> to post comments</span></li></ul></nav>
+    
+      </div>
+</article>  </div>
+  <div class="views-row views-row-3 views-row-odd">
+    <article about="/article/cutting-down-carbon-footprints-rourkela-ramp-solar-power-infra" typeof="sioc:Item foaf:Document" class="node node-article node-teaser node-published node-not-promoted node-not-sticky author-scc-india-staff odd clearfix" id="node-article-7602">
+        <header>
+    <h2 class="node-title"><a href="/article/cutting-down-carbon-footprints-rourkela-ramp-solar-power-infra" title="Cutting down carbon footprints: Rourkela to ramp up solar power infra">Cutting down carbon footprints: Rourkela to ramp up solar power infra</a></h2>
+  </header>
+    <span property="dc:title" content="Cutting down carbon footprints: Rourkela to ramp up solar power infra" class="rdf-meta element-hidden"></span><span property="sioc:num_replies" content="0" datatype="xsd:integer" class="rdf-meta element-hidden"></span>    <footer class="submitted"><span property="dc:date dc:created" content="2021-02-19T12:28:25+05:30" datatype="xsd:dateTime">Fri, 2021-02-19 12:28</span> -- <span rel="sioc:has_creator"><span class="username" xml:lang="" about="/users/scc-india-staff" typeof="sioc:UserAccount" property="foaf:name" datatype="">SCC India Staff</span></span></footer>
+    
+  
+  <div class="content clearfix">
+    <div class="field field-name-field-publishing-date field-type-datetime field-label-hidden"><div class="field-items"><div class="field-item even"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="2021-02-18T13:30:00+05:30">02/18/2021</span></div></div></div><div class="field field-name-body field-type-text-with-summary field-label-hidden clearfix">
+        <div class="field-items">
+                    <div class="field-item even"
+                 property="content:encoded">
+                <p>The Rourkela Municipal Corporation (RMC) is gearing up to cut down on its carbon footprints by improving energy efficiency through the use of green power under the Smart City projects. The city is expected to generate substantial solar energy and slash consumption of conventional power.</p>
+            </div>
+            </div>
+</div>  </div>
+  
+  <div class="clearfix">
+          <nav class="links node-links clearfix"><ul class="links inline"><li class="node-readmore first"><a href="/article/cutting-down-carbon-footprints-rourkela-ramp-solar-power-infra" rel="tag" title="Cutting down carbon footprints: Rourkela to ramp up solar power infra">Read more<span class="element-invisible"> about Cutting down carbon footprints: Rourkela to ramp up solar power infra</span></a></li><li class="comment_forbidden last"><span><a href="/user/login?destination=node/7602%23comment-form">Log in</a> or <a href="/user/register?destination=node/7602%23comment-form">register</a> to post comments</span></li></ul></nav>
+    
+      </div>
+</article>  </div>
+  <div class="views-row views-row-4 views-row-even">
+    <article about="/article/ev-battery-recycling-gets-boost" typeof="sioc:Item foaf:Document" class="node node-article node-teaser node-published node-not-promoted node-not-sticky author-scc-india-staff even clearfix" id="node-article-7601">
+        <header>
+    <h2 class="node-title"><a href="/article/ev-battery-recycling-gets-boost" title="EV battery recycling gets a boost">EV battery recycling gets a boost</a></h2>
+  </header>
+    <span property="dc:title" content="EV battery recycling gets a boost" class="rdf-meta element-hidden"></span><span property="sioc:num_replies" content="0" datatype="xsd:integer" class="rdf-meta element-hidden"></span>    <footer class="submitted"><span property="dc:date dc:created" content="2021-02-19T12:10:22+05:30" datatype="xsd:dateTime">Fri, 2021-02-19 12:10</span> -- <span rel="sioc:has_creator"><span class="username" xml:lang="" about="/users/scc-india-staff" typeof="sioc:UserAccount" property="foaf:name" datatype="">SCC India Staff</span></span></footer>
+    
+  
+  <div class="content clearfix">
+    <div class="field field-name-field-publishing-date field-type-datetime field-label-hidden"><div class="field-items"><div class="field-item even"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="2021-02-18T13:30:00+05:30">02/18/2021</span></div></div></div><div class="field field-name-body field-type-text-with-summary field-label-hidden clearfix">
+        <div class="field-items">
+                    <div class="field-item even"
+                 property="content:encoded">
+                <p>eBikeGo, an electric mobility solutions provider, has said that they are kickstarting a drive to recycle Lithium batteries of its electric vehicles. These recycled batteries are in the beginning or middle of their lifecycle.</p>
+            </div>
+            </div>
+</div>  </div>
+  
+  <div class="clearfix">
+          <nav class="links node-links clearfix"><ul class="links inline"><li class="node-readmore first"><a href="/article/ev-battery-recycling-gets-boost" rel="tag" title="EV battery recycling gets a boost">Read more<span class="element-invisible"> about EV battery recycling gets a boost</span></a></li><li class="comment_forbidden last"><span><a href="/user/login?destination=node/7601%23comment-form">Log in</a> or <a href="/user/register?destination=node/7601%23comment-form">register</a> to post comments</span></li></ul></nav>
+    
+      </div>
+</article>  </div>
+  <div class="views-row views-row-5 views-row-odd">
+    <article about="/article/chandigarh-homes-have-digital-door-number-system" typeof="sioc:Item foaf:Document" class="node node-article node-teaser node-published node-not-promoted node-not-sticky author-scc-india-staff odd clearfix" id="node-article-7600">
+        <header>
+    <h2 class="node-title"><a href="/article/chandigarh-homes-have-digital-door-number-system" title="Chandigarh homes to have digital door number system">Chandigarh homes to have digital door number system</a></h2>
+  </header>
+    <span property="dc:title" content="Chandigarh homes to have digital door number system" class="rdf-meta element-hidden"></span><span property="sioc:num_replies" content="0" datatype="xsd:integer" class="rdf-meta element-hidden"></span>    <footer class="submitted"><span property="dc:date dc:created" content="2021-02-19T12:01:27+05:30" datatype="xsd:dateTime">Fri, 2021-02-19 12:01</span> -- <span rel="sioc:has_creator"><span class="username" xml:lang="" about="/users/scc-india-staff" typeof="sioc:UserAccount" property="foaf:name" datatype="">SCC India Staff</span></span></footer>
+    
+  
+  <div class="content clearfix">
+    <div class="field field-name-field-publishing-date field-type-datetime field-label-hidden"><div class="field-items"><div class="field-item even"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="2021-02-18T13:30:00+05:30">02/18/2021</span></div></div></div><div class="field field-name-body field-type-text-with-summary field-label-hidden clearfix">
+        <div class="field-items">
+                    <div class="field-item even"
+                 property="content:encoded">
+                <p>The Chandigarh Smart City Limited (CSCL) is developing a digital door number system, which will include QR (quick response) code number, unique property ID, and GIS (geographic information system) mapping of residential and commercial properties in Chandigarh.</p>
+            </div>
+            </div>
+</div>  </div>
+  
+  <div class="clearfix">
+          <nav class="links node-links clearfix"><ul class="links inline"><li class="node-readmore first"><a href="/article/chandigarh-homes-have-digital-door-number-system" rel="tag" title="Chandigarh homes to have digital door number system">Read more<span class="element-invisible"> about Chandigarh homes to have digital door number system</span></a></li><li class="comment_forbidden last"><span><a href="/user/login?destination=node/7600%23comment-form">Log in</a> or <a href="/user/register?destination=node/7600%23comment-form">register</a> to post comments</span></li></ul></nav>
+    
+      </div>
+</article>  </div>
+  <div class="views-row views-row-6 views-row-even">
+    <article about="/article/now-pimpri-chinchwad-create-comprehensive-e-governance-platform" typeof="sioc:Item foaf:Document" class="node node-article node-teaser node-published node-not-promoted node-not-sticky author-scc-india-staff even clearfix" id="node-article-7599">
+        <header>
+    <h2 class="node-title"><a href="/article/now-pimpri-chinchwad-create-comprehensive-e-governance-platform" title="Now, Pimpri-Chinchwad to create a comprehensive e-Governance platform">Now, Pimpri-Chinchwad to create a comprehensive e-Governance platform</a></h2>
+  </header>
+    <span property="dc:title" content="Now, Pimpri-Chinchwad to create a comprehensive e-Governance platform" class="rdf-meta element-hidden"></span><span property="sioc:num_replies" content="0" datatype="xsd:integer" class="rdf-meta element-hidden"></span>    <footer class="submitted"><span property="dc:date dc:created" content="2021-02-12T15:22:13+05:30" datatype="xsd:dateTime">Fri, 2021-02-12 15:22</span> -- <span rel="sioc:has_creator"><span class="username" xml:lang="" about="/users/scc-india-staff" typeof="sioc:UserAccount" property="foaf:name" datatype="">SCC India Staff</span></span></footer>
+    
+  
+  <div class="content clearfix">
+    <div class="field field-name-field-publishing-date field-type-datetime field-label-hidden"><div class="field-items"><div class="field-item even"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="2021-02-12T13:30:00+05:30">02/12/2021</span></div></div></div><div class="field field-name-body field-type-text-with-summary field-label-hidden clearfix">
+        <div class="field-items">
+                    <div class="field-item even"
+                 property="content:encoded">
+                <p>French technology firm Atos, recently announced that it has signed a contract with Pimpri Chinchwad Smart City Limited (PCSCL) to create a comprehensive e-Governance platform for Pimpri Chinchwad Municipal Corporation (PCMC).</p>
+            </div>
+            </div>
+</div>  </div>
+  
+  <div class="clearfix">
+          <nav class="links node-links clearfix"><ul class="links inline"><li class="node-readmore first"><a href="/article/now-pimpri-chinchwad-create-comprehensive-e-governance-platform" rel="tag" title="Now, Pimpri-Chinchwad to create a comprehensive e-Governance platform">Read more<span class="element-invisible"> about Now, Pimpri-Chinchwad to create a comprehensive e-Governance platform</span></a></li><li class="comment_forbidden last"><span><a href="/user/login?destination=node/7599%23comment-form">Log in</a> or <a href="/user/register?destination=node/7599%23comment-form">register</a> to post comments</span></li></ul></nav>
+    
+      </div>
+</article>  </div>
+  <div class="views-row views-row-7 views-row-odd">
+    <article about="/article/sanitation-smart-city-project-set-be-itanagars-top-priority" typeof="sioc:Item foaf:Document" class="node node-article node-teaser node-published node-not-promoted node-not-sticky author-scc-india-staff odd clearfix" id="node-article-7598">
+        <header>
+    <h2 class="node-title"><a href="/article/sanitation-smart-city-project-set-be-itanagars-top-priority" title="Sanitation &amp; smart city project set to be Itanagar’s top priority">Sanitation &amp; smart city project set to be Itanagar’s top priority</a></h2>
+  </header>
+    <span property="dc:title" content="Sanitation &amp; smart city project set to be Itanagar’s top priority" class="rdf-meta element-hidden"></span><span property="sioc:num_replies" content="0" datatype="xsd:integer" class="rdf-meta element-hidden"></span>    <footer class="submitted"><span property="dc:date dc:created" content="2021-02-12T15:16:45+05:30" datatype="xsd:dateTime">Fri, 2021-02-12 15:16</span> -- <span rel="sioc:has_creator"><span class="username" xml:lang="" about="/users/scc-india-staff" typeof="sioc:UserAccount" property="foaf:name" datatype="">SCC India Staff</span></span></footer>
+    
+  
+  <div class="content clearfix">
+    <div class="field field-name-field-publishing-date field-type-datetime field-label-hidden"><div class="field-items"><div class="field-item even"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="2021-02-12T13:30:00+05:30">02/12/2021</span></div></div></div><div class="field field-name-body field-type-text-with-summary field-label-hidden clearfix">
+        <div class="field-items">
+                    <div class="field-item even"
+                 property="content:encoded">
+                <p>The Itanagar Municipal Corporation (IMC) will give top priority to sanitation, cleanliness, and the smart city project under its ‘Mission – 2022’, said IMC Mayor Tame Phassang.</p>
+            </div>
+            </div>
+</div>  </div>
+  
+  <div class="clearfix">
+          <nav class="links node-links clearfix"><ul class="links inline"><li class="node-readmore first"><a href="/article/sanitation-smart-city-project-set-be-itanagars-top-priority" rel="tag" title="Sanitation &amp; smart city project set to be Itanagar’s top priority">Read more<span class="element-invisible"> about Sanitation &amp; smart city project set to be Itanagar’s top priority</span></a></li><li class="comment_forbidden last"><span><a href="/user/login?destination=node/7598%23comment-form">Log in</a> or <a href="/user/register?destination=node/7598%23comment-form">register</a> to post comments</span></li></ul></nav>
+    
+      </div>
+</article>  </div>
+  <div class="views-row views-row-8 views-row-even">
+    <article about="/article/bhagalpur-civic-body-prepares-build-smart-streets" typeof="sioc:Item foaf:Document" class="node node-article node-teaser node-published node-not-promoted node-not-sticky author-scc-india-staff even clearfix" id="node-article-7597">
+        <header>
+    <h2 class="node-title"><a href="/article/bhagalpur-civic-body-prepares-build-smart-streets" title="Bhagalpur civic body prepares to build smart streets">Bhagalpur civic body prepares to build smart streets</a></h2>
+  </header>
+    <span property="dc:title" content="Bhagalpur civic body prepares to build smart streets" class="rdf-meta element-hidden"></span><span property="sioc:num_replies" content="0" datatype="xsd:integer" class="rdf-meta element-hidden"></span>    <footer class="submitted"><span property="dc:date dc:created" content="2021-02-12T15:10:46+05:30" datatype="xsd:dateTime">Fri, 2021-02-12 15:10</span> -- <span rel="sioc:has_creator"><span class="username" xml:lang="" about="/users/scc-india-staff" typeof="sioc:UserAccount" property="foaf:name" datatype="">SCC India Staff</span></span></footer>
+    
+  
+  <div class="content clearfix">
+    <div class="field field-name-field-publishing-date field-type-datetime field-label-hidden"><div class="field-items"><div class="field-item even"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="2021-02-12T13:30:00+05:30">02/12/2021</span></div></div></div><div class="field field-name-body field-type-text-with-summary field-label-hidden clearfix">
+        <div class="field-items">
+                    <div class="field-item even"
+                 property="content:encoded">
+                <p>The Bhagalpur Municipal Corporation (BMC) has proposed new guidelines for road repair and maintenance of the town area. The civic body says that in the first phase, 18 roads, having 11.41km length will be restructured and modernized.</p>
+            </div>
+            </div>
+</div>  </div>
+  
+  <div class="clearfix">
+          <nav class="links node-links clearfix"><ul class="links inline"><li class="node-readmore first"><a href="/article/bhagalpur-civic-body-prepares-build-smart-streets" rel="tag" title="Bhagalpur civic body prepares to build smart streets">Read more<span class="element-invisible"> about Bhagalpur civic body prepares to build smart streets</span></a></li><li class="comment_forbidden last"><span><a href="/user/login?destination=node/7597%23comment-form">Log in</a> or <a href="/user/register?destination=node/7597%23comment-form">register</a> to post comments</span></li></ul></nav>
+    
+      </div>
+</article>  </div>
+  <div class="views-row views-row-9 views-row-odd">
+    <article about="/article/pune-goes-digital-installs-online-system-check-quality-treated-sewage-quality" typeof="sioc:Item foaf:Document" class="node node-article node-teaser node-published node-not-promoted node-not-sticky author-scc-india-staff odd clearfix" id="node-article-7596">
+        <header>
+    <h2 class="node-title"><a href="/article/pune-goes-digital-installs-online-system-check-quality-treated-sewage-quality" title="Pune goes digital: Installs online system to check quality of treated sewage quality">Pune goes digital: Installs online system to check quality of treated sewage quality</a></h2>
+  </header>
+    <span property="dc:title" content="Pune goes digital: Installs online system to check quality of treated sewage quality" class="rdf-meta element-hidden"></span><span property="sioc:num_replies" content="0" datatype="xsd:integer" class="rdf-meta element-hidden"></span>    <footer class="submitted"><span property="dc:date dc:created" content="2021-02-12T15:02:11+05:30" datatype="xsd:dateTime">Fri, 2021-02-12 15:02</span> -- <span rel="sioc:has_creator"><span class="username" xml:lang="" about="/users/scc-india-staff" typeof="sioc:UserAccount" property="foaf:name" datatype="">SCC India Staff</span></span></footer>
+    
+  
+  <div class="content clearfix">
+    <div class="field field-name-field-publishing-date field-type-datetime field-label-hidden"><div class="field-items"><div class="field-item even"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="2021-02-12T13:30:00+05:30">02/12/2021</span></div></div></div><div class="field field-name-body field-type-text-with-summary field-label-hidden clearfix">
+        <div class="field-items">
+                    <div class="field-item even"
+                 property="content:encoded">
+                <p>The Pune Municipal Corporation (PMC) will install an online system to check sewage water meter on sewage treatment plants (STPs) that checks the quality of treated water, which is released to Mula-Mutha rivers. It will also help to know how much water is treated and released in rivers.</p>
+            </div>
+            </div>
+</div>  </div>
+  
+  <div class="clearfix">
+          <nav class="links node-links clearfix"><ul class="links inline"><li class="node-readmore first"><a href="/article/pune-goes-digital-installs-online-system-check-quality-treated-sewage-quality" rel="tag" title="Pune goes digital: Installs online system to check quality of treated sewage quality">Read more<span class="element-invisible"> about Pune goes digital: Installs online system to check quality of treated sewage quality</span></a></li><li class="comment_forbidden last"><span><a href="/user/login?destination=node/7596%23comment-form">Log in</a> or <a href="/user/register?destination=node/7596%23comment-form">register</a> to post comments</span></li></ul></nav>
+    
+      </div>
+</article>  </div>
+  <div class="views-row views-row-10 views-row-even views-row-last">
+    <article about="/article/siemens-first-its-kind-digital-transformation-labs-focus-development-industry-40-tech" typeof="sioc:Item foaf:Document" class="node node-article node-teaser node-published node-not-promoted node-not-sticky author-scc-india-staff even clearfix" id="node-article-7595">
+        <header>
+    <h2 class="node-title"><a href="/article/siemens-first-its-kind-digital-transformation-labs-focus-development-industry-40-tech" title="Siemens’ “first-of-its kind” digital transformation labs to focus on development of Industry 4.0 tech">Siemens’ “first-of-its kind” digital transformation labs to focus on development of Industry 4.0 tech</a></h2>
+  </header>
+    <span property="dc:title" content="Siemens’ “first-of-its kind” digital transformation labs to focus on development of Industry 4.0 tech" class="rdf-meta element-hidden"></span><span property="sioc:num_replies" content="0" datatype="xsd:integer" class="rdf-meta element-hidden"></span>    <footer class="submitted"><span property="dc:date dc:created" content="2021-02-12T14:10:20+05:30" datatype="xsd:dateTime">Fri, 2021-02-12 14:10</span> -- <span rel="sioc:has_creator"><span class="username" xml:lang="" about="/users/scc-india-staff" typeof="sioc:UserAccount" property="foaf:name" datatype="">SCC India Staff</span></span></footer>
+    
+  
+  <div class="content clearfix">
+    <div class="field field-name-field-publishing-date field-type-datetime field-label-hidden"><div class="field-items"><div class="field-item even"><span class="date-display-single" property="dc:date" datatype="xsd:dateTime" content="2021-02-12T13:30:00+05:30">02/12/2021</span></div></div></div><div class="field field-name-body field-type-text-with-summary field-label-hidden clearfix">
+        <div class="field-items">
+                    <div class="field-item even"
+                 property="content:encoded">
+                <p>Siemens has signed pacts with the Central Manufacturing Technology Institute (CMTI) and the Indian Institute of Science (IISc) for setting up digital transformation labs.</p>
+            </div>
+            </div>
+</div>  </div>
+  
+  <div class="clearfix">
+          <nav class="links node-links clearfix"><ul class="links inline"><li class="node-readmore first"><a href="/article/siemens-first-its-kind-digital-transformation-labs-focus-development-industry-40-tech" rel="tag" title="Siemens’ “first-of-its kind” digital transformation labs to focus on development of Industry 4.0 tech">Read more<span class="element-invisible"> about Siemens’ “first-of-its kind” digital transformation labs to focus on development of Industry 4.0 tech</span></a></li><li class="comment_forbidden last"><span><a href="/user/login?destination=node/7595%23comment-form">Log in</a> or <a href="/user/register?destination=node/7595%23comment-form">register</a> to post comments</span></li></ul></nav>
+    
+      </div>
+</article>  </div>
+    </div>
+  
+      <h2 class="element-invisible">Pages</h2><div class="item-list"><ul class="pager clearfix"><li class="pager-current first">1</li><li class="pager-item"><a title="Go to page 2" href="/category-news?page=1">2</a></li><li class="pager-item"><a title="Go to page 3" href="/category-news?page=2">3</a></li><li class="pager-item"><a title="Go to page 4" href="/category-news?page=3">4</a></li><li class="pager-item"><a title="Go to page 5" href="/category-news?page=4">5</a></li><li class="pager-item"><a title="Go to page 6" href="/category-news?page=5">6</a></li><li class="pager-item"><a title="Go to page 7" href="/category-news?page=6">7</a></li><li class="pager-item"><a title="Go to page 8" href="/category-news?page=7">8</a></li><li class="pager-item"><a title="Go to page 9" href="/category-news?page=8">9</a></li><li class="pager-ellipsis">…</li><li class="pager-next"><a title="Go to next page" href="/category-news?page=1">next ›</a></li><li class="pager-last last"><a title="Go to last page" href="/category-news?page=170">last »</a></li></ul></div>  
+  
+  
+  
+  
+</div>    </div>
+  </div>
+</div>  </div>
+</div><aside class="grid-3 region region-sidebar-second" id="region-sidebar-second">
+  <div class="region-inner region-sidebar-second-inner">
+    <div class="block block-block block-70 block-block-70 odd block-without-title" id="block-block-70">
+  <div class="block-inner clearfix">
+                
+    <div class="content clearfix">
+      <!--smart_paging_filter--><!--smart_paging_autop_filter--><center><div class="sociallogos"><span class="hup-links"><a class="hup-links" href="http://news.smartcitiescouncil.com/acton/form/5473/0002:/1/5473:form:0001:d-ext-0001/-/l-0010/l-0010:4/index.htm"> <img src="https://smartcitiescouncil.com/images/social/email.png" border="0" alt="Smart Cities Council Email" title="Sign up for Free SCC Email" width="25" height="25" /></a></span> <!--span class="hup-lines">&nbsp;</span> <a class="hup-links" href="//india.smartcitiescouncil.com/smart-cities-council-rss-feed"><img src="https://smartcitiescouncil.com/images/social/rss.png" border="0" alt="Smart Cities Council RSS" title="Sign up for SCC RSS Feed" width="25" height="25" /></a--> <span class="hup-lines">&nbsp;</span> <a class="hup-links" href="https://twitter.com/smartcitiesin"><img src="https://smartcitiescouncil.com/images/social/twitter.png" border="0" alt="Smart Cities Council TWITTER" title="Sign up for our SCC Twitter News" width="25" height="25" /></a> <span class="hup-lines">&nbsp;</span> <a class="hup-links" href="https://www.facebook.com/SmartCitiesCouncilIndia/"><img src="https://smartcitiescouncil.com/images/social/facebook.png" border="0" alt="Smart Cities Council FACEBOOK" title="Join SCC on Facebook" width="25" height="25" /></a> <span class="hup-lines">&nbsp;</span><a class="hup-links" href="https://www.linkedin.com/company/9230282/" rel="publisher"><img src="https://smartcitiescouncil.com/images/social/linkedin.png" border="0" alt="Smart Cities Council LinkedIn" title="Join SCC at LinkedIn" width="25" height="25" /></a></div></center>    </div>
+  </div>
+</div><div class="block block-block block-60 block-block-60 even block-without-title" id="block-block-60">
+  <div class="block-inner clearfix">
+                
+    <div class="content clearfix">
+      <!--smart_paging_filter--><!--smart_paging_autop_filter--><p><a href="//india.smartcitiescouncil.com/user/register"><img src="//india.smartcitiescouncil.com/images/SubScribe-285x95.png" border="0" width="285" height="95" /></a></p>    </div>
+  </div>
+</div><div class="block block-block block-96 block-block-96 odd block-without-title" id="block-block-96">
+  <div class="block-inner clearfix">
+                
+    <div class="content clearfix">
+      <!--p><a href="/facet-search"><img src="/images/house-ads/Smart-Search-Banner-Ad_3b.png" border="0" width="285" height="150" /></a></p-->    </div>
+  </div>
+</div><div class="block block-views block-2017-top-news-top-news-india block-views-2017-top-news-top-news-india even block-without-title" id="block-views-2017-top-news-top-news-india">
+  <div class="block-inner clearfix">
+                
+    <div class="content clearfix">
+      <div class="view view-2017-top-news view-id-2017_top_news view-display-id-top_news_india view-dom-id-4ab1d3a9ab694e03df0a0536eaff906e">
+            <div class="view-header">
+      <h2 class="right-column-label">LATEST NEWS AND TRENDS</h2>    </div>
+  
+  
+  
+      <div class="view-content">
+      <table  class="views-table cols-0" class="views-table cols-0">
+       <tbody>
+          <tr  class="odd views-row-first">
+                  <td  class="views-field views-field-field-inline-images">
+            <div class="item-list"><ul><li class="first last"><img typeof="foaf:Image" src="https://india.smartcitiescouncil.com/sites/default/files/styles/inline_090x130_scale/public/india/images/now-pimpri-chinchwad.jpg?itok=vqPLqr8I" width="90" height="36" alt="Now, Pimpri-Chinchwad" title="Now, Pimpri-Chinchwad" /></li></ul></div>          </td>
+                  <td >
+            <a href="/article/now-pimpri-chinchwad-create-comprehensive-e-governance-platform">Now, Pimpri-Chinchwad to create a comprehensive e-Governance platform</a>          </td>
+                  <td >
+            <a href="/article/now-pimpri-chinchwad-create-comprehensive-e-governance-platform">MORE</a>          </td>
+              </tr>
+          <tr  class="even views-row-last">
+                  <td  class="views-field views-field-field-inline-images">
+            <div class="item-list"><ul><li class="first last"><img typeof="foaf:Image" src="https://india.smartcitiescouncil.com/sites/default/files/styles/inline_090x130_scale/public/india/images/dubai-based_company.jpg?itok=4SgnvodA" width="90" height="36" alt="Dubai-based company " title="Dubai-based company " /></li></ul></div>          </td>
+                  <td >
+            <a href="/article/dubai-based-company-announces-rs-1200-cr-industrial-smart-city-project-kochi">Dubai-based company announces Rs 1,200 cr industrial smart city project in Kochi</a>          </td>
+                  <td >
+            <a href="/article/dubai-based-company-announces-rs-1200-cr-industrial-smart-city-project-kochi">MORE</a>          </td>
+              </tr>
+      </tbody>
+</table>
+    </div>
+  
+  
+  
+  
+      <div class="view-footer">
+      <!--smart_paging_filter--><!--smart_paging_autop_filter--><div style="margin-left: 25px; margin-top: 5px"><a href="//india.smartcitiescouncil.com/category-news"><b>See all the latest news headlines >></b></a></div> <br>    </div>
+  
+  
+</div>    </div>
+  </div>
+</div>  </div>
+</aside>  </div>
+</div></section>    
+  
+      <footer id="section-footer" class="section section-footer">
+  <div id="zone-footer-wrapper" class="zone-wrapper zone-footer-wrapper clearfix">  
+  <div id="zone-footer" class="zone zone-footer clearfix container-12">
+    <div class="grid-12 region region-footer-first" id="region-footer-first">
+  <div class="region-inner region-footer-first-inner">
+    <div class="block block-system block-menu block-main-menu block-system-main-menu odd block-without-title" id="block-system-main-menu">
+  <div class="block-inner clearfix">
+                
+    <div class="content clearfix">
+      <ul class="menu"><li class="first leaf"><a href="/" title="India Home page">Home</a></li>
+<li class="leaf active-trail"><a href="/category-news" title="India News" class="active-trail active">News</a></li>
+<li class="leaf"><a href="/opportunity-calendar" title="">Opportunity Calendar</a></li>
+<li class="expanded"><a href="/category-membership-india" title="Listing of Partners for India Site">Our Partners</a><ul class="menu"><li class="first leaf"><a href="/member-levels/global-lead-partners" title="Global Lead Partners">Global Lead Partners</a></li>
+<li class="leaf"><a href="/member-levels/lead-partners-india" title="List of Lead Partners on India Site">Lead Partners</a></li>
+<li class="leaf"><a href="/member-levels/innovation-partners" title="">Innovation Partners</a></li>
+<li class="leaf"><a href="/member-levels/associate-partners-india" title="List of India Associate Partners">Associate Partners</a></li>
+<li class="last leaf"><a href="/article/smart-cities-council-partnership-program-india" title="Become a Partner">Become a Partner</a></li>
+</ul></li>
+<li class="expanded"><a href="/smart-cities-information-center/information-center" title="">City Resources</a><ul class="menu"><li class="first leaf"><a href="/article/smart-cities-council-readiness-program">Readiness Program</a></li>
+<li class="collapsed"><a href="/smart-cities-information-center/information-center" title="">Information Center</a></li>
+<li class="last leaf"><a href="/resources/india-readiness-guide-version-2" title="">India Readiness Guide</a></li>
+</ul></li>
+<li class="collapsed"><a href="/article/join-smart-cities-council-india" title="Join SCC India">Join SCC</a></li>
+<li class="expanded"><a href="/article/about-us-india" title="Information about SCC India">About Us</a><ul class="menu"><li class="first leaf"><a href="/category-council-press-releases" title="">Council Press Releases</a></li>
+<li class="leaf"><a href="/scc-bios-india" title="India Staff">Our Staff</a></li>
+<li class="last leaf"><a href="/category-scc-in-the-news" title="">SCC In The News</a></li>
+</ul></li>
+<li class="last collapsed"><a href="/article/contact-us-india" title="This is information on how to Contact SCC India">Contact Us</a></li>
+</ul>    </div>
+  </div>
+</div>  </div>
+</div><div class="grid-12 region region-footer-second" id="region-footer-second">
+  <div class="region-inner region-footer-second-inner">
+    <div class="block block-block block-49 block-block-49 odd block-without-title" id="block-block-49">
+  <div class="block-inner clearfix">
+                
+    <div class="content clearfix">
+      <!--blank-->    </div>
+  </div>
+</div>  </div>
+</div>  </div>
+</div></footer>  </div>  <div class="region region-page-bottom" id="region-page-bottom">
+  <div class="region-inner region-page-bottom-inner">
+      </div>
+</div><script type="text/javascript">
+<!--//--><![CDATA[//><!--
+window.eu_cookie_compliance_cookie_name = "SCC20180601";
+//--><!]]>
+</script>
+<script type="text/javascript" src="https://india.smartcitiescouncil.com/sites/default/files/js/js_WY6DbZzrU5cdhF4GrEitghtOSYpa3vsgIQkvmKIkvWw.js"></script>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"NRJS-8a02d7f520dd1b9f8f1","applicationID":"230868255","transactionName":"b1YBZ0EAXEFYAUQMClYcNkFaTltcXQdISxVQQw==","queueTime":0,"applicationTime":8,"atts":"QxECEQkaT08=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

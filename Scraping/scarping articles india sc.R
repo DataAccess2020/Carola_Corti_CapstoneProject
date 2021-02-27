@@ -1,0 +1,65 @@
+#######################################################
+#######################################################
+
+# inspect + scrape the "FINANCIAL EXPRESS" site -> to scrape the articles about smart cities in India 
+
+
+#######################################################
+#######################################################
+
+
+# 1) Robots.txt already inspected: I am allowed to scrape! I have now to ask politely using rvest + httr   
+
+library(stringr)
+library(httr)
+library(rvest)
+
+#  url <-"https://www.financialexpress.com/about/smart-cities/ "
+#  session <- html_session(url, 
+#                         add_headers(version = version$version.string
+#                         ))
+
+
+#get the titles
+
+page <- read_html(x = "https://www.financialexpress.com/about/smart-cities/")
+nodes <- html_nodes(x = page, css = "h3 a")
+html_text(x = nodes)
+
+#download and get the links
+
+link_to_pages <- str_c("https://www.financialexpress.com/about/smart-cities/page/", 1:5)
+dir.create("SmartCityArticles")
+
+for(i in seq_along(link_to_pages)) {
+  download.file(url = link_to_pages[i], destfile = here::here("SmartCityArticles", str_c("page", i, ".html")))
+  Sys.sleep(1)
+}
+
+out <- vector(mode = "list", length = 5)
+
+for(i in seq_along(link_to_pages)) {
+  out[[i]]<-read_html(x = here::here("SmartCityArticles", str_c("page", i, ".html")))%>%
+    html_nodes(css="h3 a")%>%
+    html_attr("href")
+}
+
+out
+
+#scrape main text 
+
+text<- rep(list(vector(mode="list", length = 27)), 5)
+View(text)
+for(z in 1:5){
+  text[[z]][1:27] <- read_html(link_to_pages[z]) %>% 
+    html_nodes("h4") %>% 
+    html_text()
+}
+
+text
+View(text)
+
+
+text
+
+unlist(text)
