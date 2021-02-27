@@ -72,10 +72,48 @@ text
 #########################################################
 
 library(quanteda)
+library(quanteda)
+library(ggplot2)
+library(quanteda.textstats)
+
+
+# creating the corpus 
 
 articles <- unlist(text)
 Corpus <- corpus(articles)
 
 summary(Corpus)
+
+ndoc(Corpus) #135 docs
+
+
+# creating the dfm
+
+myDfm <- dfm(Corpus , remove = stopwords("english"), tolower = TRUE, 
+             remove_punct = TRUE, remove_numbers=TRUE)
+
+myDfm
+
+# knitr::kable(myDfm[,1:10])
+
+# 20 top features in the dfm
+topfeatures(myDfm , 20) 
+
+
+
+# frequency of the top features in a text.
+features_dfm <- textstat_frequency(myDfm, n = 20)
+features_dfm
+
+ggplot(features_dfm, aes(x = feature, y = frequency)) +
+  geom_point() +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+
+
+# wordcloud 
+set.seed(100)
+textplot_wordcloud(myDfm , min.count = 6, random.order = FALSE,
+                   rot.per = .25, 
+                   colors = RColorBrewer::brewer.pal(8,"Dark2"))
 
 
