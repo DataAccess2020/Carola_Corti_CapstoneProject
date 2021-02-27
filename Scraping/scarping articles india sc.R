@@ -1,11 +1,12 @@
-#######################################################
-#######################################################
-
-# inspect + scrape the "FINANCIAL EXPRESS" site -> to scrape the articles about smart cities in India 
-
-
-#######################################################
-#######################################################
+##########################################################
+##########################################################
+##                                                      ##
+##  inspect + scrape the "FINANCIAL EXPRESS" site       ##
+##  to scrape the articles about smart cities in India  ##
+##                                                      ##
+##                                                      ##
+##########################################################
+##########################################################
 
 
 # 1) Robots.txt already inspected: I am allowed to scrape! I have now to ask politely using rvest + httr   
@@ -62,4 +63,19 @@ View(text)
 
 text
 
-unlist(text)
+#########################################################
+#########################################################
+###                                                   ###
+###        Creating the corpus in Quanteda            ###
+###                                                   ###
+#########################################################
+#########################################################
+
+library(quanteda)
+
+articles <- unlist(text)
+Corpus <- corpus(articles)
+
+summary(Corpus)
+
+
