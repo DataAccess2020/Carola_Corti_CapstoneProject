@@ -1,6 +1,7 @@
 ---
 title: "Smart cities in India: sketching public opinion trends on smart urban planning policies"
-author: "Carola Corti- 961514"
+subtitle: "Data Analytics for Politics Society and Complex Organizations"
+author: "Carola Corti - 961514"
 date: "February 2021"
 output: pdf_document
 ---
@@ -23,7 +24,9 @@ Rob Kitchin, one of the leading scholars interested in the debate about smart ci
 
 While it is easy to build city planning projects enthusiastically focusing on the implementation of highly advanced technologies in many fields, it is less immediate to inspect urban fabrics taking into account both the physical urban environment ( i.e. its elements, materials, form, scales, density and networks), and the psychological, socio-cultural, ecological, managerial and economic structures of metropolitan areas.
 
-It is taking into account this last consideration, that the debate around Smart City initiatives is more and more heated in developing countries where the ideal prerequisites to advance such policies are more likely to lack. These research focuses on the most prominent example In the Global South: India. The country is a key actor in implementing national-level smart city programs. The clearest example is provided by the "Smart Cities Mission", which was launched in 2015 as a urban renewal and retrofitting program by Narendra Modi, Prime Minister of the Government of India, with the aim to develop smart cities across the country, making them citizen friendly and sustainable. The plan initially included 100 cities, planning projects to be realized between 2019 and 2023.
+It is taking into account this last consideration, that the debate around Smart City initiatives is more and more heated in developing countries where the ideal prerequisites to advance such policies are more likely to lack. These research focuses on the most prominent example In the Global South: India. The country is a key actor in implementing national-level smart city programs. The clearest example is provided by the Smart Cities Mission (SCM), which was launched in 2015 as a urban renewal and retrofitting program by Narendra Modi, Prime Minister of the Government of India, with the aim to develop smart cities across the country, making them citizen friendly and sustainable.
+
+The plan initially included 100 cities, planning projects to be realized between 2019 and 2023. In spite of the innovation wave the Mission wanted to follow, although extremely advanced in the technological perspective, little consideration was given to its implementation's sociological consequences. The model of citizenship that is offered in smart cities contexts expects, in fact, on the one hand citizens to become "*netizens*", on the other, re-configuring citizenship models by instrumentalizing technology and data, can reinforce the patterns of exclusion for marginalized groups within the urban society. It is therefore not immediate for all citizens to participate actively in smart cities projects, and, whether some can, other are excluded, leading to the exacerbation of existing urban historical, material and social inequalities (Katherine S.Willis, 2019). India' contexts is this sense paradigmatic for what concerns the response to these policies of social groups such as the urban poor, street traders, and those who live in slums and informal settlements.
 
 # URBANET: scraping and analyzing articles about smart urban planning in India
 
