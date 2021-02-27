@@ -38,25 +38,96 @@ How have smart cities addressed the pandemic in India? What issues and what type
 
 In the next sessions I will analyze the sentiment and the mainly addressed topics and issues related on the one side to smart urban planning policies implementations in such country, while on the other side taking into account the role Covid-19 has played in such context.
 
-# Text analyses of the Financial Express articles about smart cities
+# Text analyses: Financial Express smart cities-related articles sentiment and topic analysis 
 
 ## Scraping the articles from the Financial Express web page
 
-***The Financial Express*** is an Indian English -language business newspaper owned by The Indian Express Group, which has been published since 1961. The newspaper specializes in Indian and international business and financial ...
+*The Financial Express* is an Indian English -language business newspaper owned by The Indian Express Group, which has been published since 1961. The newspaper specializes in Indian and international business and finance but its articles address different actuality topics as well. An entire session is dedicated to smart cities. I chose to analyze these article since this newspaper can provide great evidence of the discourse around smart cities in the perspective of its political and corporate stakeholders.
 
-The articles were imported in R following a series of web scraping operations using the R packages Rvest, Httr and Stringr, in order to download textual information to build a corpus by using the Quanteda package and, eventually, analyze it performing text analytics. The aim, here, is to download the whole articles' texts from pages 1 to 5 from the Financial Express website's smart cities- dedicated session.
+The articles were imported in R following a series of web scraping operations using the R packages Rvest, Httr and Stringr, in order to download textual information to build a corpus by using the Quanteda package and, eventually, analyze it performing text analytics. The aim, here, is to download the whole articles' texts from pages 1 to 5 from the Financial Express website's [smart cities-dedicated session](https://www.financialexpress.com/about/smart-cities/). The following steps will report the sequence of code I ran in R to scrape the articles' texts.
 
 ### Step 1: /robots.txt file inspection
 
-To check whether the website's rules permitted to perform web scraping on that page, i checked the robots.txt file. As a result, the following lines of code are shown:
+To check whether the website's rules permitted to perform web scraping on that page, i checked the robots.txt file. As a result, the following lines of code are displayed:
 
-The website shows it instructions to web robots by using the Robots Exclusion Protocol. The first line tells us this section applies to all robots; the second tells no robot can crawl the "/wp-admin/" page, namely the control dashboard of the entire WordPress website, while the last one tells the website is allowed to be crawled.
+The website shows it instructions to web robots by using the Robots Exclusion Protocol. The first line tells us this section applies to all robots; the other tell no robot can crawl the listed paths. I am therefore allowed to scrape the pages I need to collect my corpus.
 
-## Step 2: Selecting CSS paths from the DOM structure via Selector Gadget
+### Step 2: Importing the data in R studio 
 
-After having inspected the /robots.txt file, I've selected the parts of the web page I need to take into account to build the corpus on which I'll perform text analytics. I'll use selector Gadget, which will help me generating by a simple point-click operation the CSS tag I need to extract the elements I'm looking for.
+After having inspected the */robots.txt* file, I've selected the parts of the web page I needed to import in R using Selector Gadget to define the CSS tags corresponding to the elements. I then built a *for loop* in order to extract the whole texts in each of the articles from the first to the last page of this session.
 
-## Step 3: extracting the articles
+```{r}
+
+# Loading the required packages 
+
+library(stringr)
+library(httr)
+library(rvest)
+
+# Politely asking for permission to scrape
+
+ url <-"https://www.financialexpress.com/about/smart-cities/ "
+  session <- html_session(url, 
+                         add_headers(version = version$version.string
+                         ))
+
+```
+
+Let's then download the titles of the articles:
+
+```{r}
+# Scraping the titles 
+
+page <- read_html(x = "https://www.financialexpress.com/about/smart-cities/")
+nodes <- html_nodes(x = page, css = "h3 a")
+html_text(x = nodes)
+
+```
+
+Downloading and storing the articles' links (from page 1 to 5) in a newly created directory in my project's folder:
+
+```{r warning=FALSE}
+
+#downloading and getting the links
+
+link_to_pages <- str_c("https://www.financialexpress.com/about/smart-cities/page/", 1:5)
+dir.create("SmartCityArticles")
+
+for(i in seq_along(link_to_pages)) {
+  download.file(url = link_to_pages[i], destfile = here::here("SmartCityArticles", str_c("page", i, ".html")))
+  Sys.sleep(1)
+}
+
+out <- vector(mode = "list", length = 5)
+
+for(i in seq_along(link_to_pages)) {
+  out[[i]]<-read_html(x = here::here("SmartCityArticles", str_c("page", i, ".html")))%>%
+    html_nodes(css="h3 a")%>%
+    html_attr("href")
+}
+
+out [[1]]
+
+```
+
+Scraping the main text I'll need:
+
+```{r}
+#scraping the texts
+
+text<- rep(list(vector(mode="list", length = 27)), 5)
+
+for(z in 1:5){
+  text[[z]][1:27] <- read_html(link_to_pages[z]) %>% 
+    html_nodes("h4") %>% 
+    html_text()
+}
+
+text [[1]]
+
+```
+
+## Creating the corpus in Quanteda 
 
 # TWITTER: how do people talk about smart cities?
 
