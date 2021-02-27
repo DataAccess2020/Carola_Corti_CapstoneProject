@@ -14,10 +14,10 @@ library(stringr)
 library(httr)
 library(rvest)
 
-#  url <-"https://www.financialexpress.com/about/smart-cities/ "
-#  session <- html_session(url, 
-#                         add_headers(version = version$version.string
-#                         ))
+  url <-"https://www.financialexpress.com/about/smart-cities/ "
+  session <- html_session(url, 
+                         add_headers(version = version$version.string
+                         ))
 
 
 #get the titles
