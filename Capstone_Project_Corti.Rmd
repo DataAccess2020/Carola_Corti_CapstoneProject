@@ -40,7 +40,7 @@ With an estimated 90 percent of all reported COVID-19 cases, urban areas have be
 
 Data collected by the United Nations and reported in the UN 2020 Policy Brief "*Covid-19 in an Urban World*" , suggest that the poorer neighborhoods and those with the largest households size were more likely to experience a high number of cases per capita. India, with its 35.2% of the country's whole population living in slums and informal settlements, constitutes a paradigmatic example, since many homes in such areas lack access to water and sanitation facilities, making, for example, safe and regular handwashing extremely difficult. It is in this context that the smart policies applied to urban centers are and were expected to be mainly aimed at stemming the contagion, putting in practice the technological advantage that characterize their strength.
 
-## Research question 
+## Research question
 
 As for the sake of my ultimate research goal to sketch a sort of public opinion analysis regarding this debate, I will focus on topic and sentiment analyses of the corpora I will collect from the voices into play within the discourse related to smart cities in India. I will take into account two main voices: the corporate stakeholder's one, represented by the Indian newspaper **Financial Express** articles, and those coming from a more democratic medium, **Twitter**, even if aware it still not provides a fully reliable representation of the slice of non-digitalized population public opinion. I will try to provide an answer to the following questions:
 
@@ -80,11 +80,12 @@ library(rvest)
 
 # Politely asking for permission to scrape
 
- url <-"https://www.financialexpress.com/about/smart-cities/ "
-  session <- html_session(url, 
-                         add_headers(version = version$version.string
-                         ))
-
+ session <- RCurl::getURL(url, 
+                        useragent = str_c(R.version$platform,
+                                          R.version$version.string,
+                                          sep = ", "),
+                        httpheader = c(From = "barosa.carola@gmail.com"))
+ 
 ```
 
 Let's then download the titles of the articles:
@@ -141,9 +142,28 @@ knitr::kable(head((text [[1]])))
 
 ```
 
+Scraping the dates of publication for each article in each page:
+
+```{r message=FALSE, warning=FALSE}
+
+# getting the publication dates 
+
+date <- rep(list(vector(mode="list", length = 27)), 5)
+
+for(t in 1:5){
+  date[[t]][1:27] <- read_html(link_to_pages[t]) %>% 
+    html_nodes(".minsago") %>% 
+    html_text()
+}
+
+knitr::kable((date)[[1]])
+```
+
+Let's now
+
 ## Creating the corpus in Quanteda
 
-###  Creating the Corpus and the Document-feature matrix
+### Creating the Corpus and the Document-feature matrix
 
 These two steps will provide the base to run, subsequently, more text analytics.
 
