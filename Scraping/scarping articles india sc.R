@@ -124,6 +124,7 @@ typeof(x$texts)
 #########################################################
 #########################################################
 
+library(readtext)
 library(quanteda)
 library(quanteda)
 library(ggplot2)
@@ -132,6 +133,15 @@ library(quanteda.textstats)
 
 # creating the corpus 
 
+articles_corpus <- corpus(
+  x,
+  docid_field = "doc_id",
+  text_field = "texts",
+  meta = list(),
+  unique_docnames = TRUE
+)
+
+summary(articles_corpus)
 
 
 # creating the dfm
