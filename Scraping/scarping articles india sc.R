@@ -60,9 +60,9 @@ for(z in 1:5){
 text
 View(text)
 
+texts <- unlist(text)
 
-text
-
+texts
 
 #getting the publication date 
 
@@ -76,6 +76,17 @@ for(t in 1:5){
 
 View(date)
 date
+
+dates <- unlist(date)
+dates
+
+
+# putting texts and dates of pubb in a DF 
+
+articles_df <- data.frame(texts, dates, stringsAsFactors = FALSE)
+
+articles_df
+
 
 
 
