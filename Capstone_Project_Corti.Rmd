@@ -335,6 +335,25 @@ No difference is observed between the displayed positive and negative words, eve
 
 # Analyzing citizens' voice: a look into TWITTER
 
+```{r include=FALSE}
+## store api keys (these are fake example values; replace with your own keys)
+api_key <- "0jiORnKSCseYdFtWxZJmF6gQb"
+api_secret_key <- "ErHwCr8t6NWtyoBk7x6p9SiyygWT8gppK7HA14m6bzj0wTQ11M"
+access_token <- "1350756992101588992-lJaVtzQWLPDq2ju67W5fYH2Rup5ODw"
+access_token_secret <- "4WXg3cv1VnQU7lggcpx65mzhVdNw6INg3kyPlwkc4UILZ"
+
+## authenticate via web browser
+token <- create_token(
+  app = "carolsnake_dev",
+  consumer_key = api_key,
+  consumer_secret = api_secret_key,
+  access_token = access_token,
+  access_secret = access_token_secret)
+
+get_token()
+
+```
+
 ## Running the query via geolocalization 
 
 loading the required packages:
