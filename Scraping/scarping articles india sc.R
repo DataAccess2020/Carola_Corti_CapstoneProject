@@ -111,9 +111,9 @@ articles_docs <- write.csv(articles_df,"articles_docs.csv", row.names = TRUE)
 
 #read .csv
 
-x <- read.csv(file = "articles_docs.csv", header = TRUE)
+x <- read.csv(file = "articles_docs.csv")
 
-typeof(x$texts)
+
 
 
 #########################################################
@@ -143,15 +143,17 @@ articles_corpus <- corpus(
 
 summary(articles_corpus)
 
+docvars(articles_corpus)
+
 
 # creating the dfm
 
-myDfm <- dfm(Corpus , remove = stopwords("english"), tolower = TRUE, 
+myDfm <- dfm(articles_corpus , remove = stopwords("english"), tolower = TRUE, 
              remove_punct = TRUE, remove_numbers=TRUE)
 
 myDfm
 
-# knitr::kable(myDfm[,1:10])
+
 
 # 20 top features in the dfm
 topfeatures(myDfm , 20) 
