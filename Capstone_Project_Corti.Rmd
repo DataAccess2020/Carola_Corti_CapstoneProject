@@ -378,7 +378,7 @@ Running the query looking for tweets written in India containing the words "smar
 
 # Retriving the tweets via geolocalization interacting with the Google Maps API
 
-rt <- search_tweets( "smart city", n = 1000, geocode = lookup_coords("india"))
+rt <- search_tweets( "smart city", n = 1000, lang = "en", include_rts = FALSE, geocode = lookup_coords("india"))
 
 # Adding latitude and longitude 
 
@@ -415,7 +415,7 @@ cat("Twitter data","\n",paste("From:",since),"\n",paste(" To:",latest))
 
 ```
 
-Plotting the geocoded tweets using *Leaflet*: only 8 out of 1000 texts are totally traceable
+Plotting the geocoded tweets using *Leaflet*:
 
 ```{r message=FALSE, warning=FALSE}
 
@@ -441,7 +441,44 @@ knitr::kable(head(sort(table(ht), decreasing = TRUE)))
 
 ### Corpus and Document-Feature Matrix
 
+```{r}
+
+# Creating the corpus 
+
+Twittercorp <- corpus(sctwitter)
+
+#Creating the Dfm
+
+to_remove <- c("<", ">", "+", "-")
+
+myDfmtwitt <- dfm(Twittercorp, remove = stopwords("english"), remove_punct = TRUE, remove_numbers=TRUE, tolower = TRUE, stem = TRUE, remove_url = TRUE)%>%
+  dfm_remove(to_remove)
+
+
+knitr::kable(head(myDfmtwitt)[,1:8])
+```
+
 ### Most occurrent words within the corpus 
+
+Top 10 words:
+
+```{r}
+knitr::kable(topfeatures(myDfmtwitt , 10)) 
+
+```
+
+Displaying features' frequency in a wordcloud:
+
+```{r message=FALSE, warning=FALSE}
+
+set.seed(100)
+textplot_wordcloud(myDfmtwitt , min.count = 6, random.order = FALSE,
+                   rot.per = .25, 
+                   colors = RColorBrewer::brewer.pal(8,"Dark2"))
+
+
+
+```
 
 ### Applying the NRC Sentiment dictionary 
 
