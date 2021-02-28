@@ -80,7 +80,9 @@ library(rvest)
 
 # Politely asking for permission to scrape
 
- session <- RCurl::getURL(url, 
+url <-"https://www.financialexpress.com/about/smart-cities/ "
+
+session <- RCurl::getURL(url, 
                         useragent = str_c(R.version$platform,
                                           R.version$version.string,
                                           sep = ", "),
@@ -163,8 +165,8 @@ Creating a data frame in which to store the texts and the dates of publication:
 
 ```{r}
 
-unlist(text)
-unlist(date)
+texts <- unlist(text)
+dates <- unlist(date)
 
 articles_df <- data.frame(texts, dates, stringsAsFactors = FALSE)
 
@@ -178,6 +180,7 @@ Tidying the "*dates*" variable using the package *lubridate:*
 ```{r}
 
 library(lubridate)
+
 articles_df$dates <- mdy(articles_df$dates)
 
 head(articles_df$dates)
