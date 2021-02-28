@@ -10,6 +10,7 @@ library(leaflet)
 library(stringr)
 library(rtweet)
 
+
 ### interacting with both twitter and Google Maps APIs
 
 api <- "AIzaSyBgzA4GK6xdVyMqTRplawcqJ0iwar6OEnU"
@@ -17,21 +18,24 @@ api <- "AIzaSyBgzA4GK6xdVyMqTRplawcqJ0iwar6OEnU"
 
 lookup_coords("india", apikey = api) 
 
-#   rt <- search_tweets( "smart city", n = 1000, geocode = lookup_coords("india"))
 
-#   rt
-#   0
-#   AIzaSyBgzA4GK6xdVyMqTRplawcqJ0iwar6OEnU
 
-rt
+# Retriving the tweets via geolocalization interacting with the Google Maps API
 
-## create lat/lng variables 
+rt <- search_tweets( "smart city", n = 1000, lang = "en", include_rts = FALSE, geocode = lookup_coords("india"))
+length(rt$text) #774 texts
+
+# Adding latitude and longitude 
 
 rtll <- lat_lng(rt)
 
-## write as csv the file 
+# Saving the results of the query in a .csv file 
 
-write_as_csv(rtll, "rtll.csv", prepend_ids = TRUE, na = "", fileEncoding = "UTF-8")
+write_as_csv(rtll, "rtll.csv", prepend_ids = TRUE, na = "", 
+             fileEncoding = "UTF-8")
+
+
+
 
 ## read my csv 
 
@@ -59,6 +63,21 @@ ht <- unlist(ht)
 head(sort(table(ht), decreasing = TRUE))
 
 
+####
 
+# Creating the corpus 
 
+Twittercorp <- corpus(sctwitter)
+
+#Creating the Dfm
+
+myDfmtwitt <- dfm(Twittercorp, remove = stopwords("english"),
+             remove_punct = TRUE, remove_numbers=TRUE, tolower = TRUE, stem = TRUE, remove_url = TRUE)
+
+# wordcloud for features frequency 
+
+set.seed(100)
+textplot_wordcloud(myDfmtwitt , min.count = 6, random.order = FALSE,
+                   rot.per = .25, 
+                   colors = RColorBrewer::brewer.pal(8,"Dark2"))
 
