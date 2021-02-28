@@ -17,11 +17,12 @@ library(stringr)
 library(httr)
 library(rvest)
 
-  url <-"https://www.financialexpress.com/about/smart-cities/ "
+
+url <-"https://www.financialexpress.com/about/smart-cities/ "
 
 
   
-  session <- RCurl::getURL(url, 
+session <- RCurl::getURL(url, 
                         useragent = str_c(R.version$platform,
                                           R.version$version.string,
                                           sep = ", "),
@@ -159,7 +160,6 @@ myDfm
 topfeatures(myDfm , 20) 
 
 
-
 # frequency of the top features in a text.
 features_dfm <- textstat_frequency(myDfm, n = 20)
 features_dfm
@@ -175,4 +175,34 @@ textplot_wordcloud(myDfm , min.count = 6, random.order = FALSE,
                    rot.per = .25, 
                    colors = RColorBrewer::brewer.pal(8,"Dark2"))
 
+
+# NRC dictionary applied to the corpus to inspect the sentiment 
+
+library(syuzhet)
+
+get_sentiment_dictionary(dictionary = 'nrc', language = "english")
+nrc_vector <- get_sentiment(articles_corpus , method="nrc")
+head(nrc_vector)
+
+
+# applying the NRC vector to the corpus
+
+nrc_data_PR <- get_nrc_sentiment(articles_corpus, language = "english")
+head(nrc_data_PR)
+
+
+# plotting the sentiment 
+
+barplot(
+  sort(colSums(prop.table(nrc_data_PR[, 1:10]))),
+  horiz = TRUE,
+  cex.names = 0.7,
+  las = 1,
+  main = "Emotions", xlab="Frequency")
+
+# fear? 
+# disgust? 
+
+
+articles_df$text[nrc_data_PR$negative > 1]
 
