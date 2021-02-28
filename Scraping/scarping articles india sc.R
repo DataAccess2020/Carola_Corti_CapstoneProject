@@ -8,6 +8,8 @@
 ##########################################################
 ##########################################################
 
+browseURL("https://www.financialexpress.com/robots.txt")
+
 
 # 1) Robots.txt already inspected: I am allowed to scrape! I have now to ask politely using rvest + httr   
 
@@ -16,10 +18,16 @@ library(httr)
 library(rvest)
 
   url <-"https://www.financialexpress.com/about/smart-cities/ "
-  session <- html_session(url, 
-                         add_headers(version = version$version.string
-                         ))
 
+
+  
+  session <- RCurl::getURL(url, 
+                        useragent = str_c(R.version$platform,
+                                          R.version$version.string,
+                                          sep = ", "),
+                        httpheader = c(From = "barosa.carola@gmail.com"))
+  
+  
 
 #get the titles
 
@@ -83,11 +91,29 @@ dates
 
 # putting texts and dates of pubb in a DF 
 
-articles_df <- data.frame(texts, dates, stringsAsFactors = FALSE)
+articles_df <- data.frame(texts, dates)
 
 articles_df
 
+# tidying dates 
 
+library(lubridate)
+articles_df$dates <- mdy(articles_df$dates)
+articles_df$dates
+
+is.Date(articles_df$dates)
+
+articles_df
+
+# saving the data frame as a .csv (to use it in the next op to create a text via readtext)
+
+articles_docs <- write.csv(articles_df,"articles_docs.csv", row.names = TRUE)
+
+#read .csv
+
+x <- read.csv(file = "articles_docs.csv", header = TRUE)
+
+typeof(x$texts)
 
 
 #########################################################
@@ -106,12 +132,6 @@ library(quanteda.textstats)
 
 # creating the corpus 
 
-articles <- unlist(text)
-Corpus <- corpus(articles)
-
-summary(Corpus)
-
-ndoc(Corpus) #135 docs
 
 
 # creating the dfm
