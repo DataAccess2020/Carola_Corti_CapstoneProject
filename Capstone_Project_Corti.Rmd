@@ -142,7 +142,7 @@ knitr::kable(head((text [[1]])))
 
 ```
 
-Scraping the dates of publication for each article in each page:
+Scraping the date of publication for each article in each page:
 
 ```{r message=FALSE, warning=FALSE}
 
@@ -173,7 +173,7 @@ articles_df
 
 ```
 
-Tidying the "*dates*" variable by using the package *lubridate.*
+Tidying the "*dates*" variable using the package *lubridate:*
 
 ```{r}
 
@@ -196,7 +196,7 @@ articles_docs <- write.csv(articles_df,"articles_docs.csv", row.names = TRUE)
 
 ## Creating and analyzing the corpus in *Quanteda*
 
-### Creating the Corpus and the Document-feature matrix
+### Corpus and the Document-feature matrix
 
 Loading the required packages:
 
@@ -211,13 +211,66 @@ library(quanteda.textstats)
 
 ```
 
+Reading the *articles_docs.csv* file to create the corpus:
+
+```{r}
+x <- read.csv(file = "articles_docs.csv")
+```
+
 Creating the corpus:
 
 ```{r}
-articles <- unlist(text)
-Corpus <- corpus(articles)
+articles_corpus <- corpus(
+  x,
+  docid_field = "doc_id",
+  text_field = "texts",
+  meta = list(),
+  unique_docnames = TRUE
+)
 
-knitr::kable(head(summary((Corpus))))
+knitr::kable(head(summary(articles_corpus)))
+```
+
+Creating the Document-features matrix by removing english stopwords, setting each text in lower case, removing punctuation and numbers.
+
+```{r}
+# creating the dfm
+
+myDfm <- dfm(articles_corpus, remove = stopwords("english"), tolower = TRUE, 
+             remove_punct = TRUE, remove_numbers=TRUE)
+
+knitr::kable(head(myDfm)[,1:8])
+
+```
+
+### Most occurent words within the corpus
+
+Top 10 words:
+
+```{r}
+knitr::kable(topfeatures(myDfm , 10)) 
+
+```
+
+Top features frequency:
+
+```{r}
+features_dfm <- textstat_frequency(myDfm, n = 20)
+
+ggplot(features_dfm, aes(x = feature, y = frequency)) +
+  geom_point() +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+
+```
+
+Displaying a wordcloud:
+
+```{r message=FALSE, warning=FALSE}
+set.seed(100)
+textplot_wordcloud(myDfm , min.count = 6, random.order = FALSE,
+                   rot.per = .25, 
+                   colors = RColorBrewer::brewer.pal(8,"Dark2"))
+
 ```
 
 # TWITTER: how do people talk about smart cities?
