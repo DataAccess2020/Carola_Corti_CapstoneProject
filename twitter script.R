@@ -48,8 +48,10 @@ cat("Twitter data","\n",paste("From:",since),"\n",paste(" To:",latest))
 ## plot via leaflet
 
 m2 <- leaflet(rtll)
-m2 <- addTiles(m2) # Add default OpenStreetMap map tiles
+m2 <- addTiles(m2) 
 m2 <- addMarkers(m2, lng=sctwitter$lng, lat=sctwitter$lat, popup=sctwitter$text)
 m2
+
+
 
 
