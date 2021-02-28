@@ -276,7 +276,7 @@ textplot_wordcloud(myDfm , min.count = 6, random.order = FALSE,
 
 ```
 
-## Applying the NRC sentiment dictionary to the corpus
+### Applying the NRC sentiment dictionary to the corpus
 
 These next step will we ought to inspecting which are the
 
@@ -339,7 +339,7 @@ No difference is observed between the displayed positive and negative words, eve
 
 ```{r eval=FALSE, message=FALSE, warning=FALSE}
 
-# retriving the tweets via geolocalization interacting with the Google Maps API
+# Retriving the tweets via geolocalization interacting with the Google # Maps API
 
 rt <- search_tweets( "smart city", n = 1000, geocode = lookup_coords("india"))
 
@@ -347,14 +347,13 @@ rt <- search_tweets( "smart city", n = 1000, geocode = lookup_coords("india"))
 
 rtll <- lat_lng(rt)
 
-```
-
-```{r}
-
 # Saving the results of the query in a .csv file 
 
 write_as_csv(rtll, "rtll.csv", prepend_ids = TRUE, na = "", 
              fileEncoding = "UTF-8")
+```
+
+```{r}
 
 # Reading the file in which data are stored
 
@@ -390,6 +389,14 @@ m2
 
 
 ```
+
+## Creating and analyzing the corpus
+
+### Corpus and Document-Feature Matrix
+
+### Most occurrent words within the corpus 
+
+### Applying the NRC Sentiment dictionary 
 
 # Conclusions
 
