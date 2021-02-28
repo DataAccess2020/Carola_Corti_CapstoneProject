@@ -63,6 +63,22 @@ View(text)
 
 text
 
+
+#getting the publication date 
+
+date <- rep(list(vector(mode="list", length = 27)), 5)
+View(date)
+for(t in 1:5){
+  date[[t]][1:27] <- read_html(link_to_pages[t]) %>% 
+    html_nodes(".minsago") %>% 
+    html_text()
+}
+
+View(date)
+date
+
+
+
 #########################################################
 #########################################################
 ###                                                   ###
