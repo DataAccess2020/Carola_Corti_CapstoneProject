@@ -70,7 +70,7 @@ The website shows it instructions to web robots by using the Robots Exclusion Pr
 
 After having inspected the */robots.txt* file, I've selected the parts of the web page I needed to import in R using Selector Gadget to define the CSS tags corresponding to the elements. I then built a *for loop* in order to extract the main texts in each of the articles shown in the session, downloading it from the first to the last page of this session (pages 1 to 5).
 
-```{r}
+```{r message=FALSE, warning=FALSE}
 
 # Loading the required packages 
 
@@ -89,7 +89,7 @@ library(rvest)
 
 Let's then download the titles of the articles:
 
-```{r}
+```{r message=FALSE, warning=FALSE}
 # Scraping the titles 
 
 page <- read_html(x = "https://www.financialexpress.com/about/smart-cities/")
@@ -100,7 +100,7 @@ knitr::kable(html_text(x = nodes))
 
 Downloading and storing the articles' links (from page 1 to 5) in a newly created directory in my project's folder:
 
-```{r warning=FALSE}
+```{r message=FALSE, warning=FALSE}
 
 #downloading and getting the links
 
@@ -126,7 +126,7 @@ knitr::kable(out [[1]])
 
 Scraping the main text I'll need:
 
-```{r}
+```{r message=FALSE, warning=FALSE}
 #scraping the articles previews texts
 
 text<- rep(list(vector(mode="list", length = 27)), 5)
@@ -137,11 +137,35 @@ for(z in 1:5){
     html_text()
 }
 
-knitr::kable(text [[1]])
+knitr::kable(head((text [[1]])))
 
 ```
 
 ## Creating the corpus in Quanteda
+
+###  Creating the Corpus and the Document-feature matrix
+
+These two steps will provide the base to run, subsequently, more text analytics.
+
+```{r message=FALSE, warning=FALSE}
+
+# Loading the required packages 
+
+library(quanteda)
+library(quanteda)
+library(ggplot2)
+library(quanteda.textstats)
+
+```
+
+Creating the corpus:
+
+```{r}
+articles <- unlist(text)
+Corpus <- corpus(articles)
+
+knitr::kable(head(summary((Corpus))))
+```
 
 # TWITTER: how do people talk about smart cities?
 
