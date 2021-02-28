@@ -71,8 +71,10 @@ Twittercorp <- corpus(sctwitter)
 
 #Creating the Dfm
 
-myDfmtwitt <- dfm(Twittercorp, remove = stopwords("english"),
-             remove_punct = TRUE, remove_numbers=TRUE, tolower = TRUE, stem = TRUE, remove_url = TRUE)
+to_remove <- c("<", ">", "+", "-")
+
+myDfmtwitt <- dfm(Twittercorp, remove = stopwords("english"), remove_punct = TRUE, remove_numbers=TRUE, tolower = TRUE, stem = TRUE, remove_url = TRUE)%>%
+  dfm_remove(to_remove)
 
 # wordcloud for features frequency 
 
