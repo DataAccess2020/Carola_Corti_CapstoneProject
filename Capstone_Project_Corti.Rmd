@@ -159,7 +159,19 @@ for(t in 1:5){
 knitr::kable((date)[[1]])
 ```
 
-Let's now
+Creating a data frame in which to store the texts and the dates of publication:
+
+```{r}
+
+unlist(text)
+unlist(date)
+
+articles_df <- data.frame(texts, dates, stringsAsFactors = FALSE)
+
+articles_df
+
+
+```
 
 ## Creating the corpus in Quanteda
 
