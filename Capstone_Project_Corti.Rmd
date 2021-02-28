@@ -337,9 +337,27 @@ No difference is observed between the displayed positive and negative words, eve
 
 ## Running the query via geolocalization 
 
+loading the required packages:
+
+```{r message=FALSE, warning=FALSE}
+
+library(rtweet)
+library(readtext)
+library(quanteda)
+library(ggplot2)
+library(ggmap)
+library(httpuv)
+library(maps)
+library(leaflet)
+
+
+```
+
+Running the query looking for tweets written in India containing the words "smart" and "city" :
+
 ```{r eval=FALSE, message=FALSE, warning=FALSE}
 
-# Retriving the tweets via geolocalization interacting with the Google # Maps API
+# Retriving the tweets via geolocalization interacting with the Google Maps API
 
 rt <- search_tweets( "smart city", n = 1000, geocode = lookup_coords("india"))
 
@@ -380,13 +398,23 @@ cat("Twitter data","\n",paste("From:",since),"\n",paste(" To:",latest))
 
 Plotting the geocoded tweets using *Leaflet*: only 8 out of 1000 texts are totally traceable
 
-```{r}
+```{r message=FALSE, warning=FALSE}
 
 m2 <- leaflet(rtll)
 m2 <- addTiles(m2) 
 m2 <- addMarkers(m2, lng=sctwitter$lng, lat=sctwitter$lat, popup=sctwitter$text)
 m2
 
+
+```
+
+Displaying the most frequent hashtags:
+
+```{r message=FALSE, warning=FALSE}
+
+ht <- str_extract_all(sctwitter$text, '#[A-Za-z0-9_]+')
+ht <- unlist(ht)
+knitr::kable(head(sort(table(ht), decreasing = TRUE)))
 
 ```
 
