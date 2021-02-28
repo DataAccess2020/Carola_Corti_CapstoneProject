@@ -333,9 +333,63 @@ wordcloud(articles_df$text[nrc_data_PR$negative] , random.order = FALSE,
 
 No difference is observed between the displayed positive and negative words, even though the corpus was analyzed by applying the NRC dictionary, which is able to recognize difference in sentiment within a selected corpus. This lack could be addressed to two main possible reasons: the first provides an explanation lying in the short dimension of the texts, since they're article previews composed of just few sentences each; it is therefore maybe due to the reduced lexical variety of which the short synopses are made of that the NRC algorithm failed labeling correctly the sentiment across texts . The second, instead, addresses this result to the homogeneity of provenience of the articles in corpus: they're in fact all part of the same side of the debate. This may logically lead also to an homogeneity of lexicon and sentiment, since all the texts were written taking into account the same point of view within the debate. The most frequent words are in fact positive and optimist ones, letting us infer the discourse develops almost entirely around the perception of smart city as positive and optimal solutions for urban planning in Indian cities. Moreover, the articles were, for the vast majority, written in 2016: further evidence is therefore provided in favor of the greater presence of lexicon linked to a highly positive sentiment, since the *Smart Cities Mission* was started between those years and its first steps were followed with great enthusiasm.
 
-# 
+# Analyzing citizens' voice: a look into TWITTER
 
-# Analyzing private stakeholder's voice: a look into TWITTER
+## Running the query via geolocalization 
+
+```{r eval=FALSE, message=FALSE, warning=FALSE}
+
+# retriving the tweets via geolocalization interacting with the Google Maps API
+
+rt <- search_tweets( "smart city", n = 1000, geocode = lookup_coords("india"))
+
+# Adding latitude and longitude 
+
+rtll <- lat_lng(rt)
+
+```
+
+```{r}
+
+# Saving the results of the query in a .csv file 
+
+write_as_csv(rtll, "rtll.csv", prepend_ids = TRUE, na = "", 
+             fileEncoding = "UTF-8")
+
+# Reading the file in which data are stored
+
+sctwitter <- read.csv("rtll.csv", fileEncoding = "UTF-8")
+
+head(sctwitter)[,1:4]
+
+```
+
+Displaying the first six tweets' texts:
+
+```{r}
+head(sctwitter)[,5]
+```
+
+The tweets were written in the temporal span shown below:
+
+```{r}
+since <- sctwitter$created_at[100]
+latest <- sctwitter$created_at[1]
+cat("Twitter data","\n",paste("From:",since),"\n",paste(" To:",latest))
+
+```
+
+Plotting the geocoded tweets using *Leaflet*: only 8 out of 1000 texts are totally traceable
+
+```{r}
+
+m2 <- leaflet(rtll)
+m2 <- addTiles(m2) 
+m2 <- addMarkers(m2, lng=sctwitter$lng, lat=sctwitter$lat, popup=sctwitter$text)
+m2
+
+
+```
 
 # Conclusions
 
