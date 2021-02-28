@@ -197,7 +197,7 @@ articles_docs <- write.csv(articles_df,"articles_docs.csv", row.names = TRUE)
 
 ```
 
-## Creating and analyzing the corpus in *Quanteda*
+## Creating and analyzing the corpus 
 
 ### Corpus and the Document-feature matrix
 
@@ -276,7 +276,66 @@ textplot_wordcloud(myDfm , min.count = 6, random.order = FALSE,
 
 ```
 
-# TWITTER: how do people talk about smart cities?
+## Applying the NRC sentiment dictionary to the corpus
+
+These next step will we ought to inspecting which are the
+
+```{r message=FALSE, warning=FALSE, results='hide'}
+library(syuzhet)
+
+get_sentiment_dictionary(dictionary = 'nrc', language = "english")
+nrc_vector <- get_sentiment(articles_corpus , method="nrc")
+head(nrc_vector)
+```
+
+Applying the NRC vector to the corpus:
+
+```{r}
+
+nrc_data_PR <- get_nrc_sentiment(articles_corpus, language = "english")
+
+knitr::kable(head(nrc_data_PR))
+
+```
+
+Plotting the sentiment:
+
+```{r}
+barplot(
+  sort(colSums(prop.table(nrc_data_PR[, 1:10]))),
+  horiz = TRUE,
+  cex.names = 0.7,
+  las = 1,
+  main = "Emotions", xlab="Frequency")
+```
+
+Let's now display in a wordcloud the most used words for the two extreme sentiment labels I have identified: the ones that express positivity and those that express negativity:
+
+Positive words:
+
+```{r message=FALSE, warning=FALSE}
+
+set.seed(100)
+wordcloud(articles_df$text[nrc_data_PR$positive] , random.order = FALSE,
+          rot.per = .25,  min.count = 2,
+          colors = RColorBrewer::brewer.pal(8,"Dark2"))
+```
+
+Negative words:
+
+```{r message=FALSE, warning=FALSE}
+set.seed(100)
+wordcloud(articles_df$text[nrc_data_PR$negative] , random.order = FALSE,
+          rot.per = .25,  min.count = 2,
+          colors = RColorBrewer::brewer.pal(8,"Dark2"))
+
+```
+
+No difference is observed between the displayed positive and negative words, even though the corpus was analyzed by applying the NRC dictionary, which is able to recognize difference in sentiment within a selected corpus. This lack could be addressed to two main possible reasons: the first provides an explanation lying in the short dimension of the texts, since they're article previews composed of just few sentences each; it is therefore maybe due to the reduced lexical variety of which the short synopses are made of that the NRC algorithm failed labeling correctly the sentiment across texts . The second, instead, addresses this result to the homogeneity of provenience of the articles in corpus: they're in fact all part of the same side of the debate. This may logically lead also to an homogeneity of lexicon and sentiment, since all the texts were written taking into account the same point of view within the debate. The most frequent words are in fact positive and optimist ones, letting us infer the discourse develops almost entirely around the perception of smart city as positive and optimal solutions for urban planning in Indian cities. Moreover, the articles were, for the vast majority, written in 2016: further evidence is therefore provided in favor of the greater presence of lexicon linked to a highly positive sentiment, since the *Smart Cities Mission* was started between those years and its first steps were followed with great enthusiasm.
+
+# 
+
+# Analyzing private stakeholder's voice: a look into TWITTER
 
 # Conclusions
 
