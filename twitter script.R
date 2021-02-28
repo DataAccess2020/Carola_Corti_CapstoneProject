@@ -52,6 +52,13 @@ m2 <- addTiles(m2)
 m2 <- addMarkers(m2, lng=sctwitter$lng, lat=sctwitter$lat, popup=sctwitter$text)
 m2
 
+# Most frequent ht 
+
+ht <- str_extract_all(sctwitter$text, '#[A-Za-z0-9_]+')
+ht <- unlist(ht)
+head(sort(table(ht), decreasing = TRUE))
+
+
 
 
 
