@@ -200,9 +200,15 @@ barplot(
   las = 1,
   main = "Emotions", xlab="Frequency")
 
-# fear? 
-# disgust? 
 
+#negative words 
 
 articles_df$text[nrc_data_PR$negative > 1]
+
+library(wordcloud)
+set.seed(100)
+wordcloud(articles_df$text[nrc_data_PR$negative > 1] , random.order = FALSE,
+                   rot.per = .25, 
+                   colors = RColorBrewer::brewer.pal(8,"Dark2"))
+
 
