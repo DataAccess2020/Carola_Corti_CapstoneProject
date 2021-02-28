@@ -40,7 +40,7 @@ With an estimated 90 percent of all reported COVID-19 cases, urban areas have be
 
 Data collected by the United Nations and reported in the UN 2020 Policy Brief "*Covid-19 in an Urban World*" , suggest that the poorer neighborhoods and those with the largest households size were more likely to experience a high number of cases per capita. India, with its 35.2% of the country's whole population living in slums and informal settlements, constitutes a paradigmatic example, since many homes in such areas lack access to water and sanitation facilities, making, for example, safe and regular handwashing extremely difficult. It is in this context that the smart policies applied to urban centers are and were expected to be mainly aimed at stemming the contagion, putting in practice the technological advantage that characterize their strength.
 
-## Research question
+# Research question
 
 As for the sake of my ultimate research goal to sketch a sort of public opinion analysis regarding this debate, I will focus on topic and sentiment analyses of the corpora I will collect from the voices into play within the discourse related to smart cities in India. I will take into account two main voices: the corporate stakeholder's one, represented by the Indian newspaper **Financial Express** articles, and those coming from a more democratic medium, **Twitter**, even if aware it still not provides a fully reliable representation of the slice of non-digitalized population public opinion. I will try to provide an answer to the following questions:
 
@@ -52,11 +52,11 @@ As for the sake of my ultimate research goal to sketch a sort of public opinion 
 
 # Analyzing corporate stakeholders' voice: *The Financial Express*
 
-## Scraping articles previews from the Financial Express web page
+## Collecting articles previews from the Financial Express web page
 
 *The Financial Express* is an Indian English -language business newspaper owned by The Indian Express Group, which has been published since 1961. The newspaper specializes in Indian and international business and finance but its articles address different actuality topics as well. An entire session is dedicated to smart cities. I chose to analyze these short texts since this newspaper can provide great evidence of the discourse around smart cities in the perspective of its political and corporate stakeholders, as the name of the newspaper suggests.
 
-The texts were imported in R following a series of web scraping operations using the R packages Rvest, Httr and Stringr, in order to download textual information to build a corpus by using the Quanteda package and, eventually, analyze it performing text analytics. The aim, here, is to download the provided texts from pages 1 to 5 from the Financial Express website's [smart cities-dedicated session](https://www.financialexpress.com/about/smart-cities/). The following steps will report the sequence of code I ran in R to scrape the contents.
+The texts were imported in R following a series of web scraping operations using the R packages *Rvest*, *Httr* and *Stringr,* in order to download textual information to build a corpus by using the *Quanteda* package and, eventually, analyze it performing text analytics. The aim, here, is to download the provided texts from pages 1 to 5 from the Financial Express website's [smart cities-dedicated session](https://www.financialexpress.com/about/smart-cities/). The following steps will report the sequence of code I ran in R to scrape the contents.
 
 ### Step 1: */robots.txt* file inspection
 
@@ -66,7 +66,7 @@ To check whether the website's rules permitted to perform web scraping on that p
 
 The website shows it instructions to web robots by using the Robots Exclusion Protocol. The first line tells us this section applies to all robots; the other tell no robot can crawl the listed paths. I am therefore allowed to scrape the pages I need to collect my corpus since it doesn't belong to this list.
 
-### Step 2: Importing the data in R Studio
+### Step 2: Importing the data in R Studio via web scraping with *Rvest*
 
 After having inspected the */robots.txt* file, I've selected the parts of the web page I needed to import in R using Selector Gadget to define the CSS tags corresponding to the elements. I then built a *for loop* in order to extract the main texts in each of the articles shown in the session, downloading it from the first to the last page of this session (pages 1 to 5).
 
@@ -173,11 +173,32 @@ articles_df
 
 ```
 
-## Creating the corpus in Quanteda
+Tidying the "*dates*" variable by using the package *lubridate.*
+
+```{r}
+
+library(lubridate)
+articles_df$dates <- mdy(articles_df$dates)
+
+head(articles_df$dates)
+
+
+```
+
+### Step 3: Saving the texts in a .csv file
+
+Saving the data frame in a .csv file called *articles_docs.csv.*
+
+```{r message=FALSE, warning=FALSE}
+articles_docs <- write.csv(articles_df,"articles_docs.csv", row.names = TRUE)
+
+```
+
+## Creating and analyzing the corpus in *Quanteda*
 
 ### Creating the Corpus and the Document-feature matrix
 
-These two steps will provide the base to run, subsequently, more text analytics.
+Loading the required packages:
 
 ```{r message=FALSE, warning=FALSE}
 
