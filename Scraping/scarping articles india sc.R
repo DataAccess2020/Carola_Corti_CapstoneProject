@@ -176,7 +176,7 @@ textplot_wordcloud(myDfm , min.count = 6, random.order = FALSE,
                    colors = RColorBrewer::brewer.pal(8,"Dark2"))
 
 
-# NRC dictionary applied to the corpus to inspect the sentiment 
+##### NRC dictionary applied to the corpus to inspect the sentiment 
 
 library(syuzhet)
 
@@ -201,14 +201,37 @@ barplot(
   main = "Emotions", xlab="Frequency")
 
 
-#negative words 
 
-articles_df$text[nrc_data_PR$negative > 1]
 
-library(wordcloud)
+
+
+
+# positive 
+
+articles_df$text[nrc_data_PR$positive]
+
+
 set.seed(100)
-wordcloud(articles_df$text[nrc_data_PR$negative > 1] , random.order = FALSE,
-                   rot.per = .25, 
-                   colors = RColorBrewer::brewer.pal(8,"Dark2"))
+wordcloud(articles_df$text[nrc_data_PR$positive] , random.order = FALSE,
+          rot.per = .25,  min.count = 2,
+          colors = RColorBrewer::brewer.pal(8,"Dark2"))
+
+
+
+# negative 
+
+articles_df$text[nrc_data_PR$negative]
+
+
+set.seed(100)
+wordcloud(articles_df$text[nrc_data_PR$negative] , random.order = FALSE,
+          rot.per = .25,  min.count = 2,
+          colors = RColorBrewer::brewer.pal(8,"Dark2"))
+
+
+
+
+
+
 
 
