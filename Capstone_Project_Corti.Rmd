@@ -10,15 +10,19 @@ output: pdf_document
 
 This project aims at collecting information about the discourse above smart cities. I will focus on India's specific case, inspecting whether the debate related to smart cities' policies' implementation in such country develops positively or negatively, what topics are the mostly discussed and which are the most problematic issues related to it.
 
-The research will be composed of two main parts. In the first, I will provide sentiment and topic analyses processing a corpus of articles about India's smart cities development. In the second part, by interacting with the Twitter and Google Maps APIs, I will download via geographical selection the latest 2000 tweets written in India, containing the words "smart cities" and "Covid-19" . The analyses will be run, on the one hand, in order to identify the main debated topics within the smart cities broader narratives; on the other hand, to capture the overall sentiment among the texts to draw a better picture of how smart cities are perceived and what can be addressed as a criticisms or advantage in the implementation of such urban planning decisions in the perspective of both the governmental and its citizens point of view, especially in light of the Covid-19 health emergency and the known and highly debated overcrowding, poverty and diseased conditions that are common to many Indian metropolitan areas.
+The research will be composed of two main parts. In the first, I will provide sentiment and topic analyses processing a corpus of articles previews about India's smart cities development. In the second part, by interacting with the Twitter and Google Maps APIs, I will download via geographical selection the latest 2000 tweets written in India, containing the words "smart cities" and "Covid-19" .
+
+The analyses will be run, on the one hand, in order to identify the main debated topics within the smart cities broader narratives; on the other hand, to capture the overall sentiment among the texts to draw a better picture of how smart cities are perceived in its stakeholders' opinion and what can be addressed as a criticisms or advantage in the implementation of such urban planning decisions in the India's context, taking into account both the governmental and its citizens point of view, especially in light of the Covid-19 health emergency and the known and highly debated overcrowding, poverty and diseased conditions that are common to many Indian metropolitan areas.
 
 # Introduction
 
 ### Smart cities: definition and criticism
 
-According to the definition provided by the European Commission, "smart cities" are places where traditional networks and services are made more efficient with the use of digital and telecommunication technologies for the benefit of its inhabitants and business. Smart metropolitan areas would do so by going beyond the use of information and communication technologies (ICT) in order to provide better resources while using less emissions. The implementation of policies aimed at providing efficient urban transport networks, upgraded water supplies, waste disposal facilities, electricity and heating technologies to let all goods reach each building and each societal stratus in the urban area, are at the heart of smart cities' goals. In other words, the underlining aim of adopting such policies is ought to implement interactive and responsive city administration strategies, guaranteeing safer public spaces and taking into consideration the needs of the whole population.
+According to the definition provided by the European Commission, "smart cities" are places where traditional networks and services are made more efficient with the use of digital and telecommunication technologies for the benefit of its inhabitants and business. Smart metropolitan areas would do so by going beyond the use of information and communication technologies (ICT) in order to provide better resources while using less emissions. The implementation of policies aimed at providing efficient urban transport networks, upgraded water supplies, waste disposal facilities, electricity and heating technologies to let all goods reach each building and each societal stratus in the urban area, are at the heart of smart cities' goals. In other words, the underlining aim of adopting such policies would be ought to implement interactive and responsive city administration strategies, guaranteeing safer public spaces and taking into consideration the needs of the whole population.
 
-Rob Kitchin, one of the leading scholars interested in the debate about smart cities, professor and researcher of human geography at the National Institute of Regional and Spatial Analysis at Maynooth University of Ireland, states that definition of Smart City has to take into account two important aspects. On the one side, he defines as "smart" a urban context in which *everyware* technologies (Greenfield, 2006) are massively implemented. By using this term, he refers to the massively used ubiquitous computing practices, defined by human-machine interactions extended on several levels, capable of connecting physical and digital space through the continuous collection and management of the data citizens generate interacting with the surrounding material space. On the other hand, he sheds light on the importance of understanding the relationship that occurs between citizens and the technologies they interact with. The implementation of Information Communication Technologies does not in fact constitute, in itself, a necessary and sufficient condition for a city to be defined as really intelligent; it rather is the way in which datafied interactions are used and perceived by who are supposed to be its end-users, to define whether a city is "smart" or not. While it is easy to build city planning projects enthusiastically focusing on the implementation of highly advanced technologies in many fields, it is less immediate to inspect urban fabrics taking into account both the physical urban environment ( i.e. its elements, materials, form, scales, density and networks), and the psychological, socio-cultural, ecological, managerial and economic structures of metropolitan areas. The smart cities approaches have always tended, in fact, to focus on technological solutions to urban problems from the perspective of states and companies rather than critically taking into account people and communities. t is taking into account these considerations, that the debate around Smart City initiatives is more and more heated in developing countries where the ideal prerequisites to advance such policies are more likely to lack.
+Rob Kitchin, one of the leading scholars interested in the debate about smart cities, professor and researcher of human geography at the National Institute of Regional and Spatial Analysis at Maynooth University of Ireland, states that definition of Smart City has to take into account two important aspects. On the one side, he defines as "smart" a urban context in which *everyware* technologies (Greenfield, 2006) are massively implemented. By using this term, he refers to the massively used ubiquitous computing practices, defined by human-machine interactions extended on several levels, capable of connecting physical and digital space through the continuous collection and management of the data citizens generate interacting with the surrounding material space. On the other hand, he sheds light on the importance of understanding the relationship that occurs between citizens and the technologies they interact with. The implementation of Information Communication Technologies does not in fact constitute, in itself, a necessary and sufficient condition for a city to be defined as really intelligent; it rather is the way in which datafied interactions are used and perceived by who are supposed to be its end-users, to define whether a city is "smart" or not.
+
+While it is easy, in fact, to build city planning projects enthusiastically focusing on the implementation of highly advanced technologies in many fields, it is less immediate to inspect the urban fabrics taking into account both the physical urban environment ( i.e. its elements, materials, form, scales, density and networks), and the psychological, socio-cultural, ecological, managerial and economic structures of metropolitan areas. The smart cities approaches have always tended, in fact, to focus on technological solutions to urban problems from the perspective of states and companies rather than critically taking into account people and communities. It is taking into account these considerations, that the debate around Smart City initiatives is more and more heated in developing countries where the ideal prerequisites to advance such policies are more likely to lack.
 
 ### Smart cities in India
 
@@ -28,33 +32,43 @@ However, it is precisely in India that incredibly avant-garde realities can be o
 
 The model of citizenship that is usually offered in smart cities contexts expects, in fact, on the one hand citizens to become "*netizens*", and, on the other, to re-configure citizenship models by instrumentalizing technology and data, reinforcing, as an unintended consequence, the patterns of exclusion for marginalized groups within the urban society, even though citizen consultation and participation are often described as the heart of smart city proposals. It is indeed not immediate for all citizens to participate actively in smart cities projects, and, whether some can, other are excluded, leading to the exacerbation of existing urban historical, material and social inequalities (Katherine S.Willis, 2019).
 
-For instance, the city of Chennai, Located on the Coromandel Coast of the Bay of Bengal, provides clear example of the possible implications such urban planning policies have generated for marginalized communities. In Chennai, the area-based development proposals were mainly focused around the assurance of electrical and water supply, the recycling of waste water, waste management, rain water harvesting and management at households and community levels and Wi-Fi connectivity in order to integrate public transports' utilities. In spite of what could appear at first glance, as Katherine S. Willis points out in her research on India's smart cities projects, the proposed solutions, although trying to lead to concrete changes in the life-quality within the city area, failed to recognize or give value to the existing urban informality, being rather driven and rationalized by technological deterministic market plans. Urban Informality appeared to be therefore treated as a set of conditions and resources equivalent to "leaks" in a system that needed to be optimized and rationalized. As a consequence, many plans outlined in 2016 for the Smart City Chennai have failed to be realized, being even criticized through demonstrations of public protests in which banners containing writings such as "*We want bread and butter, not Smart City*" were exposed.
+For instance, the city of Chennai, Located on the Coromandel Coast of the Bay of Bengal, provides clear example of the possible implications such urban planning policies have generated for marginalized communities. In Chennai, the area-based development proposals were mainly focused around the assurance of electrical and water supply, the recycling of waste water, waste management, rain water harvesting and management at households and community levels and Wi-Fi connectivity in order to integrate public transports' utilities. In spite of what could appear at first glance, as Katherine S. Willis points out in her 2019 research on India's smart cities projects, the proposed solutions, although trying to lead to concrete changes in the life-quality within the city area, failed to recognize or give value to the existing urban informality, being rather driven and rationalized by technological deterministic market plans. Urban Informality appeared to be therefore treated as a set of conditions and resources equivalent to "leaks" in a system that needed to be optimized and rationalized. As a consequence, many plans outlined in 2016 for the Smart City Chennai have failed to be realized, being even criticized through demonstrations of public protests in which banners containing writings such as "*We want bread and butter, not Smart City*" were exposed.
 
 ### Covid-19 and urban settlements in India
 
-With an estimated 90 percent of all reported COVID-19 cases, urban areas have became the epicenter of the pandemic. The virus have, in fact, highlighted the critical role local governments play as front-line responders within the health crisis context. In this perspective, in this last year, tackling inequalities and development deficits has became of primary importance when it comes to designing policies briefs aimed at preventing the spread of the virus. Coronavirus has been widening existing social, spacial and economic inequalities in cities both in the Global North and in the Global South. It has in fact became clear that vulnerability to COVID- 19 depends on several conditions: where in a city a person lives and works, gender, age, income level, type of home, access to public services - such as health facilities- transportation and clean water. Data collected by the United Nations and reported in the UN 2020 Policy Brief "*Covid-19 in an Urban World*" , suggest that the poorer neighborhoods and those with the largest households size were more likely to experience a high number of cases per capita. India, with its 35.2% of the country's whole population living in slums and informal settlements, constitutes a paradigmatic example, since many homes in such areas lack access to water and sanitation facilities, making, for example, safe and regular handwashing extremely difficult. It is in this context that the smart policies applied to urban centers were mainly aimed at stemming the contagion.
+With an estimated 90 percent of all reported COVID-19 cases, urban areas have became the epicenter of the pandemic. The virus have, in fact, highlighted the critical role local governments play as front-line responders within the health crisis context. In this perspective, in this last year, tackling inequalities and development deficits has became of primary importance when it comes to designing policies briefs aimed at preventing the virus spread. Coronavirus has been widening existing social, spacial and economic inequalities in cities both in the Global North and in the Global South. It has in fact became clear that vulnerability to COVID- 19 depends on several conditions: where in a city a person lives and works, gender, age, income level, type of home, access to public services - such as health facilities- transportation and clean water.
 
-How have smart cities addressed the pandemic in India? What issues and what type of narratives have been used to overcome the difficulties the virus have risen? What was the citizens' response in terms of trust/distrust in smart policies and local governance?
+Data collected by the United Nations and reported in the UN 2020 Policy Brief "*Covid-19 in an Urban World*" , suggest that the poorer neighborhoods and those with the largest households size were more likely to experience a high number of cases per capita. India, with its 35.2% of the country's whole population living in slums and informal settlements, constitutes a paradigmatic example, since many homes in such areas lack access to water and sanitation facilities, making, for example, safe and regular handwashing extremely difficult. It is in this context that the smart policies applied to urban centers are and were expected to be mainly aimed at stemming the contagion, putting in practice the technological advantage that characterize their strength.
 
-In the next sessions I will analyze the sentiment and the mainly addressed topics and issues related on the one side to smart urban planning policies implementations in such country, while on the other side taking into account the role Covid-19 has played in such context.
+## Research question 
 
-# Text analyses: Financial Express smart cities-related articles sentiment and topic analysis 
+As for the sake of my ultimate research goal to sketch a sort of public opinion analysis regarding this debate, I will focus on topic and sentiment analyses of the corpora I will collect from the voices into play within the discourse related to smart cities in India. I will take into account two main voices: the corporate stakeholder's one, represented by the Indian newspaper **Financial Express** articles, and those coming from a more democratic medium, **Twitter**, even if aware it still not provides a fully reliable representation of the slice of non-digitalized population public opinion. I will try to provide an answer to the following questions:
 
-## Scraping the articles from the Financial Express web page
+-   How is sentiment (i.e. positive/negative etc.) mapped across the two main voices?
 
-*The Financial Express* is an Indian English -language business newspaper owned by The Indian Express Group, which has been published since 1961. The newspaper specializes in Indian and international business and finance but its articles address different actuality topics as well. An entire session is dedicated to smart cities. I chose to analyze these article since this newspaper can provide great evidence of the discourse around smart cities in the perspective of its political and corporate stakeholders.
+-   What are the main discussed topics between the two sides of the debate? Is there any visible difference?
 
-The articles were imported in R following a series of web scraping operations using the R packages Rvest, Httr and Stringr, in order to download textual information to build a corpus by using the Quanteda package and, eventually, analyze it performing text analytics. The aim, here, is to download the whole articles' texts from pages 1 to 5 from the Financial Express website's [smart cities-dedicated session](https://www.financialexpress.com/about/smart-cities/). The following steps will report the sequence of code I ran in R to scrape the articles' texts.
+-   Did the COVID-19 spread cause any change for what concerns the develop of trust/distrust in Smart Cities policies and the way Governments have faced the crisis?
 
-### Step 1: /robots.txt file inspection
+# Analyzing corporate stakeholders' voice: *The Financial Express*
+
+## Scraping articles previews from the Financial Express web page
+
+*The Financial Express* is an Indian English -language business newspaper owned by The Indian Express Group, which has been published since 1961. The newspaper specializes in Indian and international business and finance but its articles address different actuality topics as well. An entire session is dedicated to smart cities. I chose to analyze these short texts since this newspaper can provide great evidence of the discourse around smart cities in the perspective of its political and corporate stakeholders, as the name of the newspaper suggests.
+
+The texts were imported in R following a series of web scraping operations using the R packages Rvest, Httr and Stringr, in order to download textual information to build a corpus by using the Quanteda package and, eventually, analyze it performing text analytics. The aim, here, is to download the provided texts from pages 1 to 5 from the Financial Express website's [smart cities-dedicated session](https://www.financialexpress.com/about/smart-cities/). The following steps will report the sequence of code I ran in R to scrape the contents.
+
+### Step 1: */robots.txt* file inspection
 
 To check whether the website's rules permitted to perform web scraping on that page, i checked the robots.txt file. As a result, the following lines of code are displayed:
 
-The website shows it instructions to web robots by using the Robots Exclusion Protocol. The first line tells us this section applies to all robots; the other tell no robot can crawl the listed paths. I am therefore allowed to scrape the pages I need to collect my corpus.
+![](images/robots%20txt%20financial%20express%20.png){width="289"}
 
-### Step 2: Importing the data in R studio 
+The website shows it instructions to web robots by using the Robots Exclusion Protocol. The first line tells us this section applies to all robots; the other tell no robot can crawl the listed paths. I am therefore allowed to scrape the pages I need to collect my corpus since it doesn't belong to this list.
 
-After having inspected the */robots.txt* file, I've selected the parts of the web page I needed to import in R using Selector Gadget to define the CSS tags corresponding to the elements. I then built a *for loop* in order to extract the whole texts in each of the articles from the first to the last page of this session.
+### Step 2: Importing the data in R Studio
+
+After having inspected the */robots.txt* file, I've selected the parts of the web page I needed to import in R using Selector Gadget to define the CSS tags corresponding to the elements. I then built a *for loop* in order to extract the main texts in each of the articles shown in the session, downloading it from the first to the last page of this session (pages 1 to 5).
 
 ```{r}
 
@@ -80,7 +94,7 @@ Let's then download the titles of the articles:
 
 page <- read_html(x = "https://www.financialexpress.com/about/smart-cities/")
 nodes <- html_nodes(x = page, css = "h3 a")
-html_text(x = nodes)
+knitr::kable(html_text(x = nodes))
 
 ```
 
@@ -106,14 +120,14 @@ for(i in seq_along(link_to_pages)) {
     html_attr("href")
 }
 
-out [[1]]
+knitr::kable(out [[1]])
 
 ```
 
 Scraping the main text I'll need:
 
 ```{r}
-#scraping the texts
+#scraping the articles previews texts
 
 text<- rep(list(vector(mode="list", length = 27)), 5)
 
@@ -123,11 +137,11 @@ for(z in 1:5){
     html_text()
 }
 
-text [[1]]
+knitr::kable(text [[1]])
 
 ```
 
-## Creating the corpus in Quanteda 
+## Creating the corpus in Quanteda
 
 # TWITTER: how do people talk about smart cities?
 
