@@ -46,9 +46,7 @@ As for the sake of my ultimate research goal to sketch a sort of public opinion 
 
 -   How is sentiment (i.e. positive/negative etc.) mapped across the two main voices?
 
--   What are the main discussed topics between the two sides of the debate? Is there any visible difference?
-
--   Did the COVID-19 spread cause any change for what concerns the develop of trust/distrust in Smart Cities policies and the way Governments have faced the crisis?
+-   How did the Covid-19 spread appear within this discourse?
 
 # Analyzing corporate stakeholders' voice: *The Financial Express*
 
@@ -344,6 +342,77 @@ wordcloud(articles_df$text[nrc_data_PR$negative] , random.order = FALSE,
 
 No difference is observed between the displayed positive and negative words, even though the corpus was analyzed by applying the NRC dictionary, which is able to recognize difference in sentiment within a selected corpus. This lack could be addressed to two main possible reasons: the first provides an explanation lying in the short dimension of the texts, since they're article previews composed of just few sentences each; it is therefore maybe due to the reduced lexical variety of which the short synopses are made of that the NRC algorithm failed labeling correctly the sentiment across texts . The second, instead, addresses this result to the homogeneity of provenience of the articles in corpus: they're in fact all part of the same side of the debate. This may logically lead also to an homogeneity of lexicon and sentiment, since all the texts were written taking into account the same point of view within the debate. The most frequent words are in fact positive and optimist ones, letting us infer the discourse develops almost entirely around the perception of smart city as positive and optimal solutions for urban planning in Indian cities. Moreover, the articles were, for the vast majority, written in 2016: further evidence is therefore provided in favor of the greater presence of lexicon linked to a highly positive sentiment, since the *Smart Cities Mission* was started between those years and its first steps were followed with great enthusiasm.
 
+### Looking for patterns in the use of words *Covid, Protests, Advantage*, and *inequity*
+
+```{r message=FALSE, warning=FALSE}
+dict <- dictionary(list(covid = c("covid"), prot = c("protest*"), adv = c("advant*"), ine = c("ineq*")))
+
+knitr::kable(dict)
+
+```
+
+Word *covid:*
+
+```{r}
+knitr::kable(head(dfm_lookup(myDfm, dict)[,1]))
+
+```
+
+The word *covid* doesn't seem to occur in any of the texts. This is due to the fact that these articles were published before the pandemic. Just one document is datable to the post-spread period (the 2021 document) which also doesn't cite it.
+
+Word *protest*:
+
+```{r}
+knitr::kable(head(dfm_lookup(myDfm, dict)[,2]))
+
+```
+
+The word *protest* is 99.3% sparse within the corpus. This means it occurs with a 0,7% frequency.
+
+Word *advantage*:
+
+```{r}
+knitr::kable(head(dfm_lookup(myDfm, dict)[,3]))
+
+```
+
+The word *advantage* also occurs with a 0,7% frequency. It occurs, for example. in the second text.
+
+Word *inequity:*
+
+```{r}
+knitr::kable(head(dfm_lookup(myDfm, dict)[,4]))
+```
+
+The word inequity is totally absent within the corpus.
+
+Let's therefore display the contexts in which the words *protest* and *advantage* appear:
+
+```{r}
+knitr::kable(head(kwic(articles_corpus, "protest*")))
+```
+
+It appears in text 22:
+
+```{r}
+texts(articles_corpus)[22]
+
+```
+
+But it appears not to be related to a protest against smart cities, displaying, instead, a reverse position.
+
+```{r}
+knitr::kable(head(kwic(articles_corpus, "advant*")))
+```
+
+It appears in text 2:
+
+```{r}
+texts(articles_corpus)[2]
+```
+
+Unexpectedly, the word *advantage* appears only one time (in text 2). It was in fact expected to be much more frequent on the one side because of its positive sentiment representation (according to the statistics shown above positive words are the vast majority), and because of its meaning, which is strongly intertwined with the progressive rhetoric used in most texts.
+
 # Analyzing citizens' voice: a look into TWITTER
 
 ## Running the query via geolocalization
@@ -416,15 +485,6 @@ Displaying the first six tweets' texts:
 
 ```{r}
 head(sctwitter)[,5]
-```
-
-The tweets were written in the temporal span shown below:
-
-```{r}
-since <- sctwitter$created_at[100]
-latest <- sctwitter$created_at[1]
-cat("Twitter data","\n",paste("From:",since),"\n",paste(" To:",latest))
-
 ```
 
 Plotting the geocoded tweets using *Leaflet*:
@@ -503,7 +563,7 @@ textplot_wordcloud(myDfmtwitt , min.count = 6, random.order = FALSE,
 
 ### Applying the NRC sentiment dictionary to the corpus 
 
-```{r}
+```{r message=FALSE, warning=FALSE, results='hide'}
 library(syuzhet)
 
 get_sentiment_dictionary(dictionary = 'nrc', language = "english")
@@ -514,15 +574,15 @@ nrc_vector2 <- get_sentiment(Twittercorp , method="nrc")
 
 Applying the NRC vector to the corpus:
 
-```{r}
+```{r message=FALSE, warning=FALSE, results='hide'}
 nrc_data_PR2 <- get_nrc_sentiment(Twittercorp, language = "english")
 
 ```
 
 Plotting the sentiment:
 
-```{r}
-SentTwit <- barplot(
+```{r message=FALSE, warning=FALSE}
+ barplot(
   sort(colSums(prop.table(nrc_data_PR2[, 1:8]))),
   horiz = TRUE,
   cex.names = 0.7,
@@ -530,8 +590,46 @@ SentTwit <- barplot(
   main = "Emotions", xlab="Frequency")
 ```
 
-### Trying to understand more about the hashtag *\#437DaysOfAmaravatiProtests* 
+Even in the Twitter context, the vast majority of words were labeled as really positive, representing trust, anticipation and joyful sentiments over all. The overall sentiment frequency is really similar, to the one displayed in the previous session among the articles corpus.
+
+### Looking for patterns in the use of words *Covid, Protests, Advantage*, and *inequity*
+
+```{r message=FALSE, warning=FALSE}
+dict <- dictionary(list(covid = c("covid"), prot = c("protest*"), adv = c("advant*"), ine = c("ineq*")))
+
+knitr::kable(dict)
+```
+
+Word *covid:*
+
+```{r message=FALSE, warning=FALSE}
+head(dfm_lookup(myDfmtwitt, dict)[,1])
+```
+
+Surprisingly, the word *covid* doesn't appear in any of the texts even though the collected tweets were written in the last days of February 2021.
+
+Word *protest\**:
+
+```{r message=FALSE, warning=FALSE}
+head(dfm_lookup(myDfmtwitt, dict)[,2])
+```
+
+*Word advant\**:
+
+```{r message=FALSE, warning=FALSE}
+head(dfm_lookup(myDfmtwitt, dict)[,3])
+```
+
+Word *ineq\**:
+
+```{r message=FALSE, warning=FALSE}
+head(dfm_lookup(myDfmtwitt, dict)[,4])
+```
+
+Surprisingly, no features among those I wanted to inspect seem to appear within this corpus.
 
 # Conclusions
+
+In spite of the analyses I run, no difference in lexical and sentiment terms, appear to occur between the corpora I've analyzed.
 
 # References
