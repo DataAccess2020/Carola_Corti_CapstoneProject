@@ -83,3 +83,31 @@ textplot_wordcloud(myDfmtwitt , min.count = 6, random.order = FALSE,
                    rot.per = .25, 
                    colors = RColorBrewer::brewer.pal(8,"Dark2"))
 
+
+# applying nrc sentiment dictionary 
+
+library(syuzhet)
+
+get_sentiment_dictionary(dictionary = 'nrc', language = "english")
+nrc_vector2 <- get_sentiment(Twittercorp , method="nrc")
+head(nrc_vector)
+
+
+#results in sentiment 
+
+nrc_data_PR2 <- get_nrc_sentiment(Twittercorp, language = "english")
+
+head(nrc_data_PR)
+
+
+# sentiment plot 
+
+barplot(
+  sort(colSums(prop.table(nrc_data_PR2[, 1:10]))),
+  horiz = TRUE,
+  cex.names = 0.7,
+  las = 1,
+  main = "Emotions", xlab="Frequency")
+
+
+## ht amaravati prot 
