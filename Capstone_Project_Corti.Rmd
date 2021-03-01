@@ -493,7 +493,7 @@ head(sctwitter)[,5]
 
 Plotting the geocoded tweets using *Leaflet*:
 
-```{r message=FALSE, warning=FALSE}
+```{r eval=FALSE, message=FALSE, warning=FALSE}
 
 m2 <- leaflet(sctwitter)
 m2 <- addTiles(m2) 
@@ -502,6 +502,8 @@ m2
 
 
 ```
+
+![](images/india%20geocoded%20tweets%20.png){width="592"}
 
 Displaying the most frequent hashtags:
 
