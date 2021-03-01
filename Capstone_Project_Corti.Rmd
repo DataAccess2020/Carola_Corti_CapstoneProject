@@ -1,9 +1,13 @@
 ---
-title: "Smart cities in India: sketching public opinion trends on smart urban planning narratives"
-subtitle: "Capstone Project for Data Access and Regulation - Data Analytics for Politics Society and Complex Organizations, University of Milan" 
+title: 'Smart cities in India: sketching public opinion trends on smart urban planning
+  narratives'
 author: "Carola Corti - 961514"
 date: "February 2021"
-output: pdf_document
+output:
+  html_document:
+    df_print: paged
+subtitle: Capstone Project for Data Access and Regulation - Data Analytics for Politics
+  Society and Complex Organizations, University of Milan
 ---
 
 # Abstract
@@ -342,7 +346,7 @@ wordcloud(articles_df$text[nrc_data_PR$negative] , random.order = FALSE,
 
 No difference is observed between the displayed positive and negative words, even though the corpus was analyzed by applying the NRC dictionary, which is able to recognize difference in sentiment within a selected corpus. This lack could be addressed to two main possible reasons: the first provides an explanation lying in the short dimension of the texts, since they're article previews composed of just few sentences each; it is therefore maybe due to the reduced lexical variety of which the short synopses are made of that the NRC algorithm failed labeling correctly the sentiment across texts . The second, instead, addresses this result to the homogeneity of provenience of the articles in corpus: they're in fact all part of the same side of the debate. This may logically lead also to an homogeneity of lexicon and sentiment, since all the texts were written taking into account the same point of view within the debate. The most frequent words are in fact positive and optimist ones, letting us infer the discourse develops almost entirely around the perception of smart city as a positive and optimal solution for urban planning in Indian cities. Moreover, the articles were, for the vast majority, written in 2016: further evidence is therefore provided in favor of the greater presence of lexicon linked to a highly positive sentiment, since the *Smart Cities Mission* was started between those years and its first steps have been followed with great enthusiasm.
 
-### Looking for patterns in the use of words *Covid, Protests, Advantage*, and *inequity*
+### Looking for patterns in the use of words *Covid, Protests, Advantage*, and *Inequity*
 
 ```{r message=FALSE, warning=FALSE}
 dict <- dictionary(list(covid = c("covid"), prot = c("protest*"), adv = c("advant*"), ine = c("ineq*")))
@@ -592,7 +596,7 @@ Plotting the sentiment:
 
 Even in the Twitter context, the vast majority of words were labeled as really positive, representing trust, anticipation and joyful sentiments over all. The overall sentiment frequency is really similar, to the one displayed in the previous session among the articles corpus.
 
-### Looking for patterns in the use of words *Covid, Protests, Advantage*, and *inequity*
+### Looking for patterns in the use of words *Covid, Protests, Advantage*, and *Inequity*
 
 ```{r message=FALSE, warning=FALSE}
 dict <- dictionary(list(covid = c("covid"), prot = c("protest*"), adv = c("advant*"), ine = c("ineq*")))
@@ -649,4 +653,12 @@ The results I obtained can instead be explained by the occurrence of the followi
 
 -   United Nations, 2020 "Policy brief: Covid-19 in an Urban World"
 
--   Siteweb: <https://www.financialexpress.com/>
+-   Financial Express Website: <https://www.financialexpress.com/>
+
+**Wordcount**:
+
+```{r words, echo=FALSE, message=FALSE, warning=FALSE}
+
+wordcount <- wordcountaddin::word_count()
+wordcount
+```
