@@ -1,5 +1,5 @@
 ---
-title: "Smart cities in India: sketching public opinion trends on smart urban planning policies' narratives"
+title: "Smart cities in India: sketching public opinion trends on smart urban planning narratives"
 subtitle: "Capstone Project for Data Access and Regulation - Data Analytics for Politics Society and Complex Organizations, University of Milan" 
 author: "Carola Corti - 961514"
 date: "February 2021"
@@ -8,11 +8,11 @@ output: pdf_document
 
 # Abstract
 
-This project aims at collecting information about the discourse above smart cities. I will focus on India's specific case, inspecting whether the debate related to smart cities' policies' implementation in such country develops positively or negatively, what topics are the mostly discussed and which are the most problematic issues related to it.
+This project aims at collecting information about the discourse above smart cities. I will focus on India's specific case, inspecting whether the debate related to smart cities' policies' implementation in such country develops positively or negatively.
 
-The research will be composed of two main parts. In the first, I will provide sentiment and topic analyses processing a corpus of articles previews about India's smart cities development. In the second part, by interacting with the Twitter and Google Maps APIs, I will download via geographical selection the latest 2000 tweets written in India, containing the words "smart cities" and "Covid-19" .
+The research will be composed of two main parts. In the first, I will provide sentiment and topic analyses processing a corpus of articles previews about India's smart cities development. In the second part, by interacting with the Twitter and Google Maps APIs, I will download via geographical selection the latest 2000 tweets written in India, containing the word "smart cities".
 
-The analyses will be run, on the one hand, in order to identify the main debated topics within the smart cities broader narratives; on the other hand, to capture the overall sentiment among the texts to draw a better picture of how smart cities are perceived in its stakeholders' opinion and what can be addressed as a criticisms or advantage in the implementation of such urban planning decisions in the India's context, taking into account both the governmental and its citizens point of view, especially in light of the Covid-19 health emergency and the known and highly debated overcrowding, poverty and diseased conditions that are common to many Indian metropolitan areas.
+The analyses will be run in order to capture the overall sentiment among the texts to draw a better picture of how smart cities are perceived in its stakeholders' opinion and what can be addressed as a criticisms or advantage in the implementation of such urban planning decisions in the India's context. I will therefore take into account both the governmental and its citizens point of view, and, if the texts will include such topics, I will try to shed light on the role Covid-19 health emergency have played along with overcrowding, poverty and diseased conditions of India's context in relation to smart cities.
 
 # Introduction
 
@@ -30,7 +30,7 @@ This research focuses on the most prominent example In the Global South: India. 
 
 However, it is precisely in India that incredibly avant-garde realities can be observed from a technological point of view (just think of the Bengaluru district, considered the Indian Silicon Valley, bulwark of technological and innovative New India). The clearest example in the urban planning context is provided by the Smart Cities Mission (SCM), a project that was launched in 2015 as a urban renewal and retrofitting program by Narendra Modi, Prime Minister of the Government of India, with the aim to develop smart cities across the country, making them citizen friendly and sustainable. The plan initially included 100 cities, planning projects to be realized between 2019 and 2023. In spite of the innovation wave the Mission wanted to follow, although extremely advanced in the technological perspective, little consideration was given to its implementation's sociological consequences.
 
-The model of citizenship that is usually offered in smart cities contexts expects, in fact, on the one hand citizens to become "*netizens*", and, on the other, to re-configure citizenship models by instrumentalizing technology and data, reinforcing, as an unintended consequence, the patterns of exclusion for marginalized groups within the urban society, even though citizen consultation and participation are often described as the heart of smart city proposals. It is indeed not immediate for all citizens to participate actively in smart cities projects, and, whether some can, other are excluded, leading to the exacerbation of existing urban historical, material and social inequalities (Katherine S.Willis, 2019).
+The model of citizenship that is usually offered in smart cities contexts expects, in fact, on the one hand citizens to become "*netizens*", and, on the other, to re-configure citizenship models by instrumentalizing technology and data, reinforcing, as an unintended consequence, the patterns of exclusion for marginalized groups within the urban society, even though citizen consultation and participation are often described as the heart of smart city proposals. It is indeed not immediate for all citizens to participate actively in smart cities projects, and, whether some can, other are excluded, leading to the exacerbation of existing urban historical, material and social inequalities (Katherine S.Willis, 2019, Dasgupta S. 2015).
 
 For instance, the city of Chennai, Located on the Coromandel Coast of the Bay of Bengal, provides clear example of the possible implications such urban planning policies have generated for marginalized communities. In Chennai, the area-based development proposals were mainly focused around the assurance of electrical and water supply, the recycling of waste water, waste management, rain water harvesting and management at households and community levels and Wi-Fi connectivity in order to integrate public transports' utilities. In spite of what could appear at first glance, as Katherine S. Willis points out in her 2019 research on India's smart cities projects, the proposed solutions, although trying to lead to concrete changes in the life-quality within the city area, failed to recognize or give value to the existing urban informality, being rather driven and rationalized by technological deterministic market plans. Urban Informality appeared to be therefore treated as a set of conditions and resources equivalent to "leaks" in a system that needed to be optimized and rationalized. As a consequence, many plans outlined in 2016 for the Smart City Chennai have failed to be realized, being even criticized through demonstrations of public protests in which banners containing writings such as "*We want bread and butter, not Smart City*" were exposed.
 
@@ -46,7 +46,7 @@ As for the sake of my ultimate research goal to sketch a sort of public opinion 
 
 -   How is sentiment (i.e. positive/negative etc.) mapped across the two main voices?
 
--   How did the Covid-19 spread appear within this discourse?
+-   How is the covid-19 pandemic addressed to in the smart cities discourse?
 
 # Analyzing corporate stakeholders' voice: *The Financial Express*
 
@@ -340,7 +340,7 @@ wordcloud(articles_df$text[nrc_data_PR$negative] , random.order = FALSE,
 
 ```
 
-No difference is observed between the displayed positive and negative words, even though the corpus was analyzed by applying the NRC dictionary, which is able to recognize difference in sentiment within a selected corpus. This lack could be addressed to two main possible reasons: the first provides an explanation lying in the short dimension of the texts, since they're article previews composed of just few sentences each; it is therefore maybe due to the reduced lexical variety of which the short synopses are made of that the NRC algorithm failed labeling correctly the sentiment across texts . The second, instead, addresses this result to the homogeneity of provenience of the articles in corpus: they're in fact all part of the same side of the debate. This may logically lead also to an homogeneity of lexicon and sentiment, since all the texts were written taking into account the same point of view within the debate. The most frequent words are in fact positive and optimist ones, letting us infer the discourse develops almost entirely around the perception of smart city as positive and optimal solutions for urban planning in Indian cities. Moreover, the articles were, for the vast majority, written in 2016: further evidence is therefore provided in favor of the greater presence of lexicon linked to a highly positive sentiment, since the *Smart Cities Mission* was started between those years and its first steps were followed with great enthusiasm.
+No difference is observed between the displayed positive and negative words, even though the corpus was analyzed by applying the NRC dictionary, which is able to recognize difference in sentiment within a selected corpus. This lack could be addressed to two main possible reasons: the first provides an explanation lying in the short dimension of the texts, since they're article previews composed of just few sentences each; it is therefore maybe due to the reduced lexical variety of which the short synopses are made of that the NRC algorithm failed labeling correctly the sentiment across texts . The second, instead, addresses this result to the homogeneity of provenience of the articles in corpus: they're in fact all part of the same side of the debate. This may logically lead also to an homogeneity of lexicon and sentiment, since all the texts were written taking into account the same point of view within the debate. The most frequent words are in fact positive and optimist ones, letting us infer the discourse develops almost entirely around the perception of smart city as a positive and optimal solution for urban planning in Indian cities. Moreover, the articles were, for the vast majority, written in 2016: further evidence is therefore provided in favor of the greater presence of lexicon linked to a highly positive sentiment, since the *Smart Cities Mission* was started between those years and its first steps have been followed with great enthusiasm.
 
 ### Looking for patterns in the use of words *Covid, Protests, Advantage*, and *inequity*
 
@@ -354,7 +354,7 @@ knitr::kable(dict)
 Word *covid:*
 
 ```{r}
-knitr::kable(head(dfm_lookup(myDfm, dict)[,1]))
+head(dfm_lookup(myDfm, dict)[,1])
 
 ```
 
@@ -363,7 +363,7 @@ The word *covid* doesn't seem to occur in any of the texts. This is due to the f
 Word *protest*:
 
 ```{r}
-knitr::kable(head(dfm_lookup(myDfm, dict)[,2]))
+head(dfm_lookup(myDfm, dict)[,2])
 
 ```
 
@@ -372,7 +372,7 @@ The word *protest* is 99.3% sparse within the corpus. This means it occurs with 
 Word *advantage*:
 
 ```{r}
-knitr::kable(head(dfm_lookup(myDfm, dict)[,3]))
+head(dfm_lookup(myDfm, dict)[,3])
 
 ```
 
@@ -381,7 +381,7 @@ The word *advantage* also occurs with a 0,7% frequency. It occurs, for example. 
 Word *inequity:*
 
 ```{r}
-knitr::kable(head(dfm_lookup(myDfm, dict)[,4]))
+head(dfm_lookup(myDfm, dict)[,4])
 ```
 
 The word inequity is totally absent within the corpus.
@@ -477,7 +477,7 @@ write_as_csv(rtll, "rtll.csv", prepend_ids = TRUE, na = "",
 
 sctwitter <- read.csv("rtll.csv", fileEncoding = "UTF-8")
 
-head(sctwitter)[,1:4]
+knitr::kable(head(sctwitter)[,1:4])
 
 ```
 
@@ -630,6 +630,23 @@ Surprisingly, no features among those I wanted to inspect seem to appear within 
 
 # Conclusions
 
-In spite of the analyses I run, no difference in lexical and sentiment terms, appear to occur between the corpora I've analyzed.
+No difference in sentiment or lexicon appear to occur between the two corpora I've analyzed. The aim of this research was to address these differences in order to sketch public opinion sentiment trends for both the clashing parts in the debate around smart cities in India; no inference can be made since the collected and analyzed data do not provide evidence to sustain my initial hypothesis in favor of the actual existence of two clashing voices in this context. Moreover, in spite of what was addressed by Katherine S.Willis (2019) about protests against the exclusion effects generated among the urban poor by smart cities policies, no words seem to be related to discontent or public protests against the implementation of such projects.
+
+The results I obtained can instead be explained by the occurrence of the following phenomena:
+
+-   The impossibility, for the most disadvantaged societal strata, to efficiently \
+    express their opinion on the matter. It really difficult, in fact, for people leaving in the most diseased conditions, to express it in writing form and/or on social networks due to illiteracy, poverty and formal social exclusion from the public and political debate.
+
+-   My impossibility of analyzing tweets written in hindi, which I wasn't able to do since I don't know this language. The choice of analyzing only english tweets may have in fact affected the results since, even though english is India's second language, it is maybe not the most used language among those who, in my opinion and according to K.S.Willis research, can be "smart cities victims".
 
 # References
+
+-   Cardullo P, Di Feliciantonio, C., Kitchin, R. "The right to the smart city" Emerald Publishing, Wagon Lane
+
+-   Coletta C., Leighton E., Heaphy L., Kitchin, R. 2019 "Creating Smart Cities" Routledge, Oxon; New York
+
+-   Kitchin, R, 2014 "The real -time city? Big Data and smart urbanism" Geojournal 79 (1) 1-14
+
+-   United Nations, 2020 "Policy brief: Covid-19 in an Urban World"
+
+-   Siteweb: <https://www.financialexpress.com/>
