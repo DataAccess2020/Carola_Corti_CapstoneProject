@@ -77,6 +77,7 @@ After having inspected the */robots.txt* file, I've selected the parts of the we
 library(stringr)
 library(httr)
 library(rvest)
+library(dplyr)
 
 # Politely asking for permission to scrape
 
@@ -170,14 +171,14 @@ dates <- unlist(date)
 
 articles_df <- data.frame(texts, dates, stringsAsFactors = FALSE)
 
-articles_df
+head(articles_df)
 
 
 ```
 
 Tidying the "*dates*" variable using the package *lubridate:*
 
-```{r}
+```{r message=FALSE, warning=FALSE}
 
 library(lubridate)
 
@@ -197,7 +198,7 @@ articles_docs <- write.csv(articles_df,"articles_docs.csv", row.names = TRUE)
 
 ```
 
-## Creating and analyzing the corpus 
+## Creating and analyzing the corpus
 
 ### Corpus and the Document-feature matrix
 
@@ -222,7 +223,7 @@ x <- read.csv(file = "articles_docs.csv")
 
 Creating the corpus:
 
-```{r}
+```{r message=FALSE, warning=FALSE}
 articles_corpus <- corpus(
   x,
   docid_field = "doc_id",
@@ -236,7 +237,7 @@ knitr::kable(head(summary(articles_corpus)))
 
 Creating the Document-features matrix by removing english stopwords, setting each text in lower case, removing punctuation and numbers.
 
-```{r}
+```{r message=FALSE, warning=FALSE}
 # creating the dfm
 
 myDfm <- dfm(articles_corpus, remove = stopwords("english"), tolower = TRUE, 
@@ -250,14 +251,14 @@ knitr::kable(head(myDfm)[,1:8])
 
 Top 10 words:
 
-```{r}
+```{r message=FALSE, warning=FALSE}
 knitr::kable(topfeatures(myDfm , 10)) 
 
 ```
 
 Top features frequency:
 
-```{r}
+```{r message=FALSE, warning=FALSE}
 features_dfm <- textstat_frequency(myDfm, n = 20)
 
 ggplot(features_dfm, aes(x = feature, y = frequency)) +
@@ -315,6 +316,8 @@ Positive words:
 
 ```{r message=FALSE, warning=FALSE}
 
+library(wordcloud)
+
 set.seed(100)
 wordcloud(articles_df$text[nrc_data_PR$positive] , random.order = FALSE,
           rot.per = .25,  min.count = 2,
@@ -335,7 +338,26 @@ No difference is observed between the displayed positive and negative words, eve
 
 # Analyzing citizens' voice: a look into TWITTER
 
+## Running the query via geolocalization
+
+loading the required packages:
+
+```{r message=FALSE, warning=FALSE}
+
+library(rtweet)
+library(readtext)
+library(quanteda)
+library(ggplot2)
+library(ggmap)
+library(httpuv)
+library(maps)
+library(leaflet)
+
+
+```
+
 ```{r include=FALSE}
+
 ## store api keys (these are fake example values; replace with your own keys)
 api_key <- "0jiORnKSCseYdFtWxZJmF6gQb"
 api_secret_key <- "ErHwCr8t6NWtyoBk7x6p9SiyygWT8gppK7HA14m6bzj0wTQ11M"
@@ -351,24 +373,6 @@ token <- create_token(
   access_secret = access_token_secret)
 
 get_token()
-
-```
-
-## Running the query via geolocalization 
-
-loading the required packages:
-
-```{r message=FALSE, warning=FALSE}
-
-library(rtweet)
-library(readtext)
-library(quanteda)
-library(ggplot2)
-library(ggmap)
-library(httpuv)
-library(maps)
-library(leaflet)
-
 
 ```
 
@@ -419,7 +423,7 @@ Plotting the geocoded tweets using *Leaflet*:
 
 ```{r message=FALSE, warning=FALSE}
 
-m2 <- leaflet(rtll)
+m2 <- leaflet(sctwitter)
 m2 <- addTiles(m2) 
 m2 <- addMarkers(m2, lng=sctwitter$lng, lat=sctwitter$lat, popup=sctwitter$text)
 m2
@@ -451,14 +455,14 @@ Twittercorp <- corpus(sctwitter)
 
 to_remove <- c("<", ">", "+", "-")
 
-myDfmtwitt <- dfm(Twittercorp, remove = stopwords("english"), remove_punct = TRUE, remove_numbers=TRUE, tolower = TRUE, stem = TRUE, remove_url = TRUE)%>%
+myDfmtwitt <- dfm(Twittercorp, remove = stopwords("english"), remove_punct = TRUE, remove_numbers=TRUE, tolower = TRUE, stem = FALSE, remove_url = TRUE)%>%
   dfm_remove(to_remove)
 
 
 knitr::kable(head(myDfmtwitt)[,1:8])
 ```
 
-### Most occurrent words within the corpus 
+### Most occurrent words within the corpus
 
 Top 10 words:
 
@@ -480,7 +484,7 @@ textplot_wordcloud(myDfmtwitt , min.count = 6, random.order = FALSE,
 
 ```
 
-### Applying the NRC Sentiment dictionary 
+### Applying the NRC sentiment dictionary
 
 # Conclusions
 
