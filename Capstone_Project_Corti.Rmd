@@ -267,7 +267,16 @@ ggplot(features_dfm, aes(x = feature, y = frequency)) +
 
 ```
 
-Displaying a wordcloud:
+Top features co-occurrence:
+
+```{r message=FALSE, warning=FALSE}
+top_feat <- names(topfeatures(myDfm, 100))
+dfm_select <- dfm_select(myDfm, pattern = top_feat, selection = "keep")
+set.seed(100)
+textplot_network(dfm_select, min_freq = 0.9)
+```
+
+Displaying the features in a wordcloud:
 
 ```{r message=FALSE, warning=FALSE}
 set.seed(100)
@@ -279,14 +288,12 @@ textplot_wordcloud(myDfm , min.count = 6, random.order = FALSE,
 
 ### Applying the NRC sentiment dictionary to the corpus
 
-These next step will we ought to inspecting which are the
-
 ```{r message=FALSE, warning=FALSE, results='hide'}
 library(syuzhet)
 
 get_sentiment_dictionary(dictionary = 'nrc', language = "english")
 nrc_vector <- get_sentiment(articles_corpus , method="nrc")
-head(nrc_vector)
+
 ```
 
 Applying the NRC vector to the corpus:
@@ -303,11 +310,12 @@ Plotting the sentiment:
 
 ```{r}
 barplot(
-  sort(colSums(prop.table(nrc_data_PR[, 1:10]))),
+  sort(colSums(prop.table(nrc_data_PR[, 1:8]))),
   horiz = TRUE,
   cex.names = 0.7,
   las = 1,
   main = "Emotions", xlab="Frequency")
+
 ```
 
 Let's now display in a wordcloud the most used words for the two extreme sentiment labels I have identified: the ones that express positivity and those that express negativity:
@@ -471,6 +479,15 @@ knitr::kable(topfeatures(myDfmtwitt , 10))
 
 ```
 
+Displaying features in a network plot to show their co-occurrence:
+
+```{r message=FALSE, warning=FALSE}
+top_feat <- names(topfeatures(myDfmtwitt, 100))
+dfm_select <- dfm_select(myDfmtwitt , pattern = top_feat, selection = "keep")
+set.seed(100)
+textplot_network(dfm_select, min_freq = 0.9)
+```
+
 Displaying features' frequency in a wordcloud:
 
 ```{r message=FALSE, warning=FALSE}
@@ -484,7 +501,36 @@ textplot_wordcloud(myDfmtwitt , min.count = 6, random.order = FALSE,
 
 ```
 
-### Applying the NRC sentiment dictionary
+### Applying the NRC sentiment dictionary to the corpus 
+
+```{r}
+library(syuzhet)
+
+get_sentiment_dictionary(dictionary = 'nrc', language = "english")
+nrc_vector2 <- get_sentiment(Twittercorp , method="nrc")
+
+
+```
+
+Applying the NRC vector to the corpus:
+
+```{r}
+nrc_data_PR2 <- get_nrc_sentiment(Twittercorp, language = "english")
+
+```
+
+Plotting the sentiment:
+
+```{r}
+SentTwit <- barplot(
+  sort(colSums(prop.table(nrc_data_PR2[, 1:8]))),
+  horiz = TRUE,
+  cex.names = 0.7,
+  las = 1,
+  main = "Emotions", xlab="Frequency")
+```
+
+### Trying to understand more about the hashtag *\#437DaysOfAmaravatiProtests* 
 
 # Conclusions
 
